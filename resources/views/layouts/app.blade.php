@@ -8,73 +8,60 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name') }}</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
-            <div class="container">
-                <div class="navbar-header">
 
-                    <!-- Collapsed Hamburger -->
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
-                        <span class="sr-only">Toggle Navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
+<div class="container">
+    <div class="row">
 
-                    <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
-                    </a>
-                </div>
+        <div class="col-md-12">
+            <div class="page-header">
+                @include('common.nav')
+                {{--require_once 'controls/header/widget.php'; --}}
+            </div>
+        </div>
 
-                <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="nav navbar-nav">
-                        &nbsp;
-                    </ul>
+        <div class="col-md-12">
+            {{--require_once 'controls/slider/widget.php'; --}}
+        </div>
 
-                    <!-- Right Side Of Navbar -->
-                    <ul class="nav navbar-nav navbar-right">
-                        <!-- Authentication Links -->
-                        @if (Auth::guest())
-                            <li><a href="{{ route('login') }}">Login</a></li>
-                            <li><a href="{{ route('register') }}">Register</a></li>
-                        @else
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
+        <div class="col-md-9">
+            @yield('content')
+            {{--require_once 'controls/php-pagination/widget.php'; --}}
+        </div>
 
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        <a href="{{ route('logout') }}"
-                                            onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            Logout
-                                        </a>
-
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form>
-                                    </li>
-                                </ul>
-                            </li>
-                        @endif
-                    </ul>
+        <div class="col-md-3 text-center">
+            <div class="panel panel-info">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            {{--require_once 'controls/search/widget.php'; --}}
+                        </div>
+                        <div class="col-md-12">
+                            <a href="/files/criterios_para_publicar.doc" class="btn btn-primary"> Criterios para
+                                publicar </a>
+                        </div>
+                        <div class="col-md-12">
+                            <div><h2><strong>Categorias</strong></h2></div>
+                            <div id="categories" class="text-left"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </nav>
-
-        @yield('content')
+        </div>
+        {{--require_once 'login/modal.php';--}}
+        {{--require_once 'user/register/modal.php'; --}}
+        {{--if ($session->GetSessionValue('valid') == 'valid'): --}}
+        {{--require_once 'user/update/modal.php'; --}}
+        {{--endif --}}
     </div>
+</div>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
+<!-- Scripts -->
+<script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>
