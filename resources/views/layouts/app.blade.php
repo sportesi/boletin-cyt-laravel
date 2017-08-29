@@ -21,13 +21,20 @@
         <div class="col-md-12">
             <div class="page-header">
                 @include('common.nav')
-                {{--require_once 'controls/header/widget.php'; --}}
+                <div class="section-header">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <h3>@yield('section')</h3>
+                        </div>
+                        <div class="col-md-3" style="padding-right: 0;">
+                            <img src="{{ asset('/images/uai-vertical.png') }}" style="width: 100%;" id="Logo UAI"/><br/>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="col-md-12">
-            {{--require_once 'controls/slider/widget.php'; --}}
-        </div>
+        @yield('slider')
 
         <div class="col-md-9">
             @yield('content')

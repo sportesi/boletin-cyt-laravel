@@ -8354,3 +8354,32 @@ body {
   background: url("/images/bg.png") repeat scroll left top;
 }
 
+.section-header {
+  padding: 0 15px;
+}
+
+.section-header h3 {
+  color: #3097D1;
+}
+
+.page-header {
+  border-bottom: 1px solid darkgrey !important;
+}
+
+.carousel img {
+  width: 100%;
+}
+
+.carousel .item {
+  max-height: 35vh;
+}
+
+.carousel-caption {
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 3px;
+}
+
+.carousel {
+  margin-bottom: 2%;
+}
+

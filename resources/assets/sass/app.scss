@@ -1,13 +1,38 @@
-
 // Fonts
 @import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
-
 // Variables
 @import "variables";
-
 // Bootstrap
 @import "~bootstrap-sass/assets/stylesheets/bootstrap";
 
-body{
+body {
   background: url('/images/bg.png') repeat scroll left top;
+}
+
+.section-header {
+  padding: 0 15px;
+  h3 {
+    color: $brand-primary;
+  }
+}
+
+.page-header {
+  border-bottom: 1px solid darkgrey !important;
+}
+
+.carousel img {
+  width: 100%;
+}
+
+.carousel .item {
+  max-height: 35vh;
+}
+
+.carousel-caption {
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 3px;
+}
+
+.carousel {
+  margin-bottom: 2%;
 }
