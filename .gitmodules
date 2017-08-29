@@ -1,0 +1,3 @@
+[submodule "ldock-boletin"]
+	path = ldock-boletin
+	url = https://github.com/Laradock/laradock.git
