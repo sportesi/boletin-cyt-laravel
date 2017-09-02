@@ -19,13 +19,15 @@
                             <p>{{ utf8_decode($new->summary) }}</p>
                             <div class="text-center">
                                 @if($new->link_1)
-                                    <a href="{!! $new->link_1 !!}" class="btn btn-info btn-sm" target="_blank">Nota Completa</a>
+                                    <a href="{!! $new->link_1 !!}" class="btn btn-info btn-sm" target="_blank">Nota
+                                        Completa</a>
                                 @endif
                                 @if($new->link_2)
                                     <a href="{!! $new->link_2 !!}" class="btn btn-info btn-sm" target="_blank">Relacionado</a>
                                 @endif
                                 @if($new->link_3)
-                                    <a href="{!! $new->link_3 !!}" class="btn btn-info btn-sm" target="_blank">Formato PDF</a>
+                                    <a href="{!! $new->link_3 !!}" class="btn btn-info btn-sm" target="_blank">Formato
+                                        PDF</a>
                                 @endif
                             </div>
                         </div>
@@ -37,14 +39,14 @@
                     <div class="col-md-5">
                         <strong>Autor:&nbsp;</strong>
                         <a href="{{--/user/statistics/index.php?id=1--}}">
-                            Sebastian Portesi ( 2017 A - TN )
+                            {{ $new->getAuthor() }}
                         </a>
                     </div>
                     <div class="col-md-3 text-center">
-                        <strong>Sede:&nbsp;</strong> Centro
+                        <strong>Sede:&nbsp;</strong> {{ $new->user->campus->name }}
                     </div>
                     <div class="col-md-4 text-right">
-                        <strong>Fecha:&nbsp;</strong> 2017-04-08
+                        <strong>Fecha:&nbsp;</strong> {{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $new->date)->format('Y-m-d') }}
                     </div>
                 </div>
             </div>

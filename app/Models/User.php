@@ -31,4 +31,14 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
+
+    public function turn()
+    {
+        return $this->belongsTo(Turn::class);
+    }
+
+    public function campus()
+    {
+        return $this->belongsTo(Campus::class);
+    }
 }
