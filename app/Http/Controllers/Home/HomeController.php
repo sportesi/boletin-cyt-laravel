@@ -10,9 +10,11 @@ class HomeController extends Controller
     public function index()
     {
         $news = News::orderBy('date', 'desc')->paginate(3);
+        $slider = News::orderBy('date', 'desc')->take(5)->get();
 
         return view('home.index', [
-            'news' => $news
+            'news' => $news,
+            'slider' => $slider
         ]);
     }
 }

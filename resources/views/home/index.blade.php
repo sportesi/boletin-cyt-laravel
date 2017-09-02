@@ -62,25 +62,24 @@
         <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
             <!-- Indicators -->
             <ol class="carousel-indicators">
-                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                <li data-target="#carousel-example-generic" data-slide-to="3"></li>
-                <li data-target="#carousel-example-generic" data-slide-to="4"></li>
+                @foreach($slider as $slide)
+                    <li data-target="#carousel-example-generic"
+                        data-slide-to="{{ $loop->index }}" class="{{ $loop->first ? 'active' : '' }}"></li>
+                @endforeach
             </ol>
 
             <!-- Wrapper for slides -->
             <div class="carousel-inner" role="listbox">
-                @for($i = 0; $i < 5; $i++)
-                    <div class="item {{ $i == 0 ? 'active' : '' }}">
-                        <a href="{{ asset('/images/uai-vertical.png') }}" target="_blank">
-                            <img src="{{ asset('/images/uai-vertical.png') }}">
+                @foreach($slider as $slide)
+                    <div class="item {{ $loop->first ? 'active' : '' }}">
+                        <a href="{!! $slide->link_1 !!}" target="_blank">
+                            <img src="{{ asset($slide->image_url) }}">
                         </a>
                         <div class="carousel-caption">
-                            title
+                            {{ utf8_decode($slide->title) }}
                         </div>
                     </div>
-                @endfor
+                @endforeach
             </div>
 
             <!-- Controls -->
