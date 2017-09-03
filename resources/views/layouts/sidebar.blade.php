@@ -2,7 +2,7 @@
     <div class="panel-body">
         <div class="row">
             <div class="col-md-12">
-                <form action="/" method="get">
+                <form action="{{ route('search') }}" method="get">
                     <div class="form-group">
                         <div class="input-group">
                             <input type="text" class="form-control" name="search" placeholder="Buscar Noticias..."/>
