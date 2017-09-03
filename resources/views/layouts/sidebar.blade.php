@@ -16,7 +16,7 @@
                 </form>
             </div>
             <div class="col-md-12">
-                <a href="/files/criterios_para_publicar.doc" class="btn btn-primary">
+                <a href="{{ Storage::url('files/criterios_para_publicar.doc') }}" download="criterios_para_publicar.doc" class="btn btn-primary">
                     Criterios para publicar
                 </a>
             </div>
