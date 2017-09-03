@@ -20,7 +20,7 @@
 
         <div class="col-md-12">
             <div class="page-header">
-                @include('common.nav')
+                @include('layouts.nav')
                 <div class="section-header">
                     <div class="row">
                         <div class="col-md-9">
@@ -38,27 +38,10 @@
 
         <div class="col-md-9">
             @yield('content')
-            {{--require_once 'controls/php-pagination/widget.php'; --}}
         </div>
 
         <div class="col-md-3 text-center">
-            <div class="panel panel-info">
-                <div class="panel-body">
-                    <div class="row">
-                        <div class="col-md-12">
-                            {{--require_once 'controls/search/widget.php'; --}}
-                        </div>
-                        <div class="col-md-12">
-                            <a href="/files/criterios_para_publicar.doc" class="btn btn-primary"> Criterios para
-                                publicar </a>
-                        </div>
-                        <div class="col-md-12">
-                            <div><h2><strong>Categorias</strong></h2></div>
-                            <div id="categories" class="text-left"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @include('layouts.sidebar')
         </div>
         {{--require_once 'login/modal.php';--}}
         {{--require_once 'user/register/modal.php'; --}}
