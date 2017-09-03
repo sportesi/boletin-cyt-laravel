@@ -1,3 +1,8 @@
+@if(Auth::check())
+    <div class="text-right">
+        Bienvenido <b>{{ Auth::user()->name }}</b>
+    </div>
+@endif
 <nav class="navbar navbar-default">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -88,12 +93,14 @@
             </ul>
             <div class="navbar-right">
                 @if(\Illuminate\Support\Facades\Auth::check())
-                    <a href="/login/logout.php" class="btn btn-primary btn-sm navbar-btn">Salir</a>
+                    <a href="{{ route('logout') }}" class="btn btn-primary btn-sm navbar-btn" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Salir</a>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        {{ csrf_field() }}
+                    </form>
                 @else
-                    <a href="#" class="btn btn-success btn-sm navbar-btn" data-toggle="modal"
-                       data-target="#modal-register">Registrarse</a>
-                    <a href="#" class="btn btn-primary btn-sm navbar-btn" data-toggle="modal"
-                       data-target="#modal-login">Ingresar</a>
+                    <a href="{{ route('register') }}" class="btn btn-success btn-sm navbar-btn">Registrarse</a>
+                    <a href="{{ route('login') }}" class="btn btn-primary btn-sm navbar-btn">Ingresar</a>
                 @endif
             </div>
         </div><!-- /.navbar-collapse -->
