@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('section', 'Búsqueda de Noticias')
+@section('section', 'Categoría: ' . ucwords(utf8_decode($category->name)))
 
 @section('content')
     @include('news.news')

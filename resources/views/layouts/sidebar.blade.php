@@ -16,7 +16,8 @@
                 </form>
             </div>
             <div class="col-md-12">
-                <a href="{{ Storage::url('files/criterios_para_publicar.doc') }}" download="criterios_para_publicar.doc" class="btn btn-primary">
+                <a href="{{ Storage::url('files/criterios_para_publicar.doc') }}" download="criterios_para_publicar.doc"
+                   class="btn btn-primary">
                     Criterios para publicar
                 </a>
             </div>
@@ -25,7 +26,7 @@
                 <div id="categories" class="text-left">
                     <div class="list-group">
                         @foreach($categories as $category)
-                            <a href="#" class="list-group-item">
+                            <a href="{{ route('category', ['id' => $category->id]) }}" class="list-group-item">
                                 {{ str_limit(utf8_decode($category->name), $limit = 22, $end = '...') }}
                                 <span class="badge">{{ count($category->news) }}</span>
                             </a>
