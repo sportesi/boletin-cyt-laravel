@@ -53,4 +53,4 @@
     </div>
 @endforeach
 
-{{ $news->links() }}
+<div class="text-center">{{ $news->links() }}</div>
