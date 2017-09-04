@@ -1,8 +1,3 @@
-@if(Auth::check())
-    <div class="text-right">
-        Bienvenido <b>{{ Auth::user()->name }}</b>
-    </div>
-@endif
 <nav class="navbar navbar-default">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -22,24 +17,7 @@
             <ul class="nav navbar-nav">
                 <li><a href="/">Últimas Noticias</a></li>
                 @if(\Illuminate\Support\Facades\Auth::check())
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                           aria-expanded="false">
-                            Configuración de Usuario <span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a role="button" data-toggle="modal" data-target="#modal-update-user">Actualizar
-                                    Datos</a>
-                            </li>
-                            <li>
-                                <a role="button" data-toggle="modal" data-target="#modal-change-password">
-                                    Cambiar Contraseña
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-
+                    {{-- IF ADMIN --}}
                     {{--@if($session->GetSessionValue('permission') == 2)--}}
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
@@ -71,33 +49,26 @@
                     <li><a href="/admin/category/list/">Categorías</a></li>
 
                     <li><a href="/admin/users/news/list/index.php?offset=0&pageperview=10">Listar Noticias</a></li>
-                    {{--@else--}}
-                    <li>
-                        <a href="/user/statistics/index.php?id=1">
-                            Rendimiento
-                        </a>
-                    </li>
-
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                           aria-haspopup="true" aria-expanded="false">
-                            Noticias <span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="/news/create">Crear</a></li>
-                            <li><a href="/news/list/">Lista por usuario</a></li>
-                        </ul>
-                    </li>
                     {{--@endif--}}
                 @endif
             </ul>
             <div class="navbar-right">
                 @if(\Illuminate\Support\Facades\Auth::check())
-                    <a href="{{ route('logout') }}" class="btn btn-primary btn-sm navbar-btn" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Salir</a>
-
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        {{ csrf_field() }}
-                    </form>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                               aria-haspopup="true" aria-expanded="false">
+                                <b>{{ Auth::user()->name }}</b> <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{ route('user-news') }}">Mis Noticias</a></li>
+                                <li><a href="#">Rendimiento</a></li>
+                                <li><a href="#">Configuración</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a onclick="logout();">Cerrar sesión</a></li>
+                            </ul>
+                        </li>
+                    </ul>
                 @else
                     <a href="{{ route('register') }}" class="btn btn-success btn-sm navbar-btn">Registrarse</a>
                     <a href="{{ route('login') }}" class="btn btn-primary btn-sm navbar-btn">Ingresar</a>
@@ -106,3 +77,5 @@
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
+<form id="logout-form" action="{{ route('logout') }}" method="POST" class="hide">{{ csrf_field() }}</form>
+<script>function logout(){event.preventDefault();document.getElementById('logout-form').submit();}</script>
