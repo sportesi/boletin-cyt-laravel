@@ -15,11 +15,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         view()->composer('layouts.sidebar', function ($view) {
-            $view->with('categories', Category::active()
-                ->sortBy(function ($category) {
-                    return count($category->news) * -1;
-                })
-            );
+            $view->with('categories', Category::active());
         });
     }
 

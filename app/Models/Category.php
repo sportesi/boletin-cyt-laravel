@@ -8,7 +8,13 @@ class Category extends Model
 {
     public static function active()
     {
-        return static::where('status', 1)->get();
+        $categories = static::has('news')
+            ->withCount('news')
+            ->where('status', 1)
+            ->orderBy('news_count', 'desc')
+            ->get();
+
+        return $categories;
     }
 
     public function news()
