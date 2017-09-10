@@ -46,7 +46,7 @@
                     @endif
                 </div>
                 <div class="col-md-4 text-right">
-                    <strong>Fecha:&nbsp;</strong> {{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $new->date)->format('Y-m-d') }}
+                    <strong>Fecha:&nbsp;</strong> {{ $new->date }}
                 </div>
             </div>
         </div>
