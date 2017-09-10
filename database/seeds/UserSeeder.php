@@ -12,7 +12,14 @@ class UserSeeder extends Seeder
     public function run()
     {
         factory(\App\User::class, 20)->create()->each(function (\App\User $u) {
-            factory(\App\News::class, 10)->create(['user_id' => $u->id]);
+            factory(\App\News::class, 10)->create([
+                'user_id' => $u->id,
+                'category_id' => \App\Category::where('status', 1)
+                    ->where('deleted', 0)
+                    ->inRandomOrder()
+                    ->get()
+                    ->first()
+            ]);
         });
     }
 }

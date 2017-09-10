@@ -31,7 +31,7 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
 $factory->define(\App\News::class, function (Faker\Generator $faker) {
     return [
         'user_id' => null,
-        'category_id' => \App\Category::first()->id,
+        'category_id' => null,
         'title' => $faker->sentence,
         'sub_title' => $faker->sentence,
         'summary' => $faker->paragraph,
