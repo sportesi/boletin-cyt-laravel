@@ -13,4 +13,8 @@ let mix = require('laravel-mix');
 
 mix.js('resources/assets/js/app.js', 'public/js')
     .sass('resources/assets/sass/app.scss', 'public/css')
-    .copyDirectory('resources/assets/images', 'public/images');
+    .copyDirectory('resources/assets/images', 'public/images')
+    .copy('node_modules/admin-lte/dist/css/AdminLTE.min.css', 'public/backoffice/css')
+    .copy('node_modules/admin-lte/dist/css/skins/skin-purple.min.css', 'public/backoffice/css')
+    .copy('node_modules/admin-lte/dist/js/app.min.js', 'public/backoffice/js')
+;

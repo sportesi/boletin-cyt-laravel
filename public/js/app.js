@@ -799,12 +799,6 @@ window.Vue = __webpack_require__(35);
 
 Vue.component('example', __webpack_require__(36));
 
-/* Logout action for navbar link */
-function logout() {
-  event.preventDefault();
-  document.getElementById('logout-form').submit();
-}
-
 /***/ }),
 /* 10 */
 /***/ (function(module, exports, __webpack_require__) {
