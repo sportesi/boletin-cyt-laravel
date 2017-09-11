@@ -6,7 +6,7 @@
 
     <div class="panel panel-default">
         <div class="panel-body">
-            <form class="form-horizontal" action="{{ route('user-news-store') }}" method="post">
+            <form class="form-horizontal" action="{{ route('user.news.store') }}" method="post">
                 {{ csrf_field() }}
                 <div class="form-group">
                     <label for="category_id" class="col-sm-2 control-label">Categoría</label>

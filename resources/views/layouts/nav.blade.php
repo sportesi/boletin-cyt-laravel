@@ -60,7 +60,7 @@
                                 <b>{{ Auth::user()->name }}</b> <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="{{ route('user-news') }}">Mis Noticias</a></li>
+                                <li><a href="{{ route('user.news') }}">Mis Noticias</a></li>
                                 <li><a href="#">Rendimiento</a></li>
                                 <li><a href="#">Configuración</a></li>
                                 <li role="separator" class="divider"></li>

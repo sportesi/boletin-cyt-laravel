@@ -25,8 +25,15 @@ Route::get('/category/{id}', 'CategoryController@index')->name('category');
 /* UserRoutes */
 Route::group(['prefix' => '/user'], function () {
     Route::group(['prefix' => '/news'], function () {
-        Route::get('/', 'User\\NewsController@index')->name('user-news');
-        Route::get('/create', 'User\\NewsController@create')->name('user-news-create');
-        Route::post('/store', 'User\\NewsController@store')->name('user-news-store');
+        Route::get('/', 'User\\NewsController@index')->name('user.news');
+        Route::get('/create', 'User\\NewsController@create')->name('user.news.create');
+        Route::post('/store', 'User\\NewsController@store')->name('user.news.store');
     });
+});
+
+
+/* BackofficeRoutes */
+
+Route::group(['prefix' => '/backoffice', 'middleware' => ['role:admin']], function () {
+    Route::get('/dashboard', 'Backoffice\\DashboardController@index')->name('backoffice.dashboard');
 });

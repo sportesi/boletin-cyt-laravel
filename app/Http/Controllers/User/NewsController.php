@@ -63,7 +63,7 @@ class NewsController extends Controller
             "link_3" => $request->get("link_3")
         ]);
 
-        return redirect()->route('user-news');
+        return redirect()->route('user.news');
     }
 
     /**
