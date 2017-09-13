@@ -16,6 +16,13 @@
 
         <ul class="sidebar-menu">
             <li class="header">MENÚ PRINCIPAL</li>
+
+            <li>
+                <a href="{{ route('home') }}">
+                    <i class="fa fa-home"></i> <span>Página Principal</span>
+                </a>
+            </li>
+
             <li class="active">
                 <a href="{{ route('backoffice.dashboard') }}">
                     <i class="fa fa-dashboard"></i> <span>Panel de Control</span>
@@ -37,6 +44,7 @@
                     </li>
                 </ul>
             </li>
+
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-users"></i> <span>Usuarios</span>
@@ -55,13 +63,13 @@
 
             <li>
                 <a href="">
-                    <i class="fa fa-list"></i> Categorías
+                    <i class="fa fa-list"></i> <span>Categorías</span>
                 </a>
             </li>
 
             <li>
                 <a href="">
-                    <i class="fa fa-book"></i> Noticias
+                    <i class="fa fa-book"></i> <span>Noticias</span>
                 </a>
             </li>
         </ul>

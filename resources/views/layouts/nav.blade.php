@@ -16,15 +16,15 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li><a href="/">Últimas Noticias</a></li>
-                @if(\Illuminate\Support\Facades\Auth::check())
-                    @if(\Illuminate\Support\Facades\Auth::user()->hasRole('admin'))
-                        <li><a href="{{ route('backoffice.dashboard') }}">Administración</a></li>
-                    @endif
-                @endif
             </ul>
             <div class="navbar-right">
                 @if(\Illuminate\Support\Facades\Auth::check())
                     <ul class="nav navbar-nav navbar-right">
+                        @if(\Illuminate\Support\Facades\Auth::check())
+                            @if(\Illuminate\Support\Facades\Auth::user()->hasRole('admin'))
+                                <li><a href="{{ route('backoffice.dashboard') }}">Panel de Control</a></li>
+                            @endif
+                        @endif
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                                aria-haspopup="true" aria-expanded="false">
