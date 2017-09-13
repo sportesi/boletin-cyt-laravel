@@ -27,7 +27,8 @@
                             <h3>@yield('section')</h3>
                         </div>
                         <div class="col-md-3" style="padding-right: 0;">
-                            <img src="{{ asset('/images/uai-vertical.png') }}" style="width: 100%;" id="Logo UAI"/><br/>
+                            <img src="{{ asset('/images/uai-vertical.png') }}" style="width: 100%;" id="Logo UAI"/>
+                            <br/>
                         </div>
                     </div>
                 </div>
@@ -43,11 +44,6 @@
         <div class="col-md-3 text-center">
             @include('layouts.sidebar')
         </div>
-        {{--require_once 'login/modal.php';--}}
-        {{--require_once 'user/register/modal.php'; --}}
-        {{--if ($session->GetSessionValue('valid') == 'valid'): --}}
-        {{--require_once 'user/update/modal.php'; --}}
-        {{--endif --}}
     </div>
 </div>
 

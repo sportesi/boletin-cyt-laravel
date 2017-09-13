@@ -18,36 +18,7 @@
                 <li><a href="/">Últimas Noticias</a></li>
                 @if(\Illuminate\Support\Facades\Auth::check())
                     @if(\Illuminate\Support\Facades\Auth::user()->hasRole('admin'))
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                               aria-haspopup="true" aria-expanded="false">
-                                Cursos <span class="caret"></span>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a href="/admin/users/report/courses/index.php">
-                                        Reporte
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                               aria-haspopup="true" aria-expanded="false">
-                                Usuarios <span class="caret"></span>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a href="/admin/users/validate/index.php">
-                                        Validar Alumnos
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-
-                        <li><a href="/admin/category/list/">Categorías</a></li>
-
-                        <li><a href="/admin/users/news/list/index.php?offset=0&pageperview=10">Listar Noticias</a></li>
+                        <li><a href="{{ route('backoffice.dashboard') }}">Administración</a></li>
                     @endif
                 @endif
             </ul>
