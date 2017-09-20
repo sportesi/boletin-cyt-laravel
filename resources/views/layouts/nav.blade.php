@@ -22,7 +22,7 @@
                     <ul class="nav navbar-nav navbar-right">
                         @if(\Illuminate\Support\Facades\Auth::check())
                             @if(\Illuminate\Support\Facades\Auth::user()->hasRole('admin'))
-                                <li><a href="{{ route('backoffice.dashboard') }}">Panel de Control</a></li>
+                                <li><a href="{{ route('bo.dash') }}">Panel de Control</a></li>
                             @endif
                         @endif
                         <li class="dropdown">

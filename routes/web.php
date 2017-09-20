@@ -1,7 +1,7 @@
 <?php
 
-use \Illuminate\Support\Facades\Route;
-use \Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +17,8 @@ use \Illuminate\Support\Facades\Auth;
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
-Route::get('/home', 'HomeController@index')->name('home-2');
+Route::get('/home', 'HomeController@index')->name('home-2
+');
 Route::get('/search', 'SearchController@index')->name('search');
 Route::get('/category/{id}', 'CategoryController@index')->name('category');
 
@@ -35,5 +36,12 @@ Route::group(['prefix' => '/user'], function () {
 /* BackofficeRoutes */
 
 Route::group(['prefix' => '/backoffice', 'middleware' => ['role:admin']], function () {
-    Route::get('/dashboard', 'Backoffice\\DashboardController@index')->name('backoffice.dashboard');
+    /* Dashboard */
+    Route::get('/dashboard', 'Backoffice\\DashboardController@index')->name('bo.dash');
+
+    /* User */
+
+    Route::group(['prefix' => '/user'], function () {
+       Route::get('/', 'Backoffice\\UserController@index')->name('bo.users');
+    });
 });

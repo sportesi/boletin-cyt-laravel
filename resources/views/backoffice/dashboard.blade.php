@@ -1,2 +1,0 @@
-@extends('backoffice.layouts.app')
-

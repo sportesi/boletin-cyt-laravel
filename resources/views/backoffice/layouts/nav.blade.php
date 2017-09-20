@@ -1,7 +1,6 @@
 <aside class="main-sidebar">
-
     <section class="sidebar">
-
+        <!-- Search Form -->
         <form action="#" method="get" class="sidebar-form">
             <div class="input-group">
                 <input type="text" name="q" class="form-control" placeholder="Buscar...">
@@ -12,23 +11,15 @@
               </span>
             </div>
         </form>
-
-
+        <!-- Sidebar Menu -->
         <ul class="sidebar-menu">
             <li class="header">MENÚ PRINCIPAL</li>
-
-            <li>
-                <a href="{{ route('home') }}">
-                    <i class="fa fa-home"></i> <span>Página Principal</span>
-                </a>
-            </li>
-
+            <li><a href="{{ route('home') }}"><i class="fa fa-home"></i> <span>Página Principal</span></a></li>
             <li class="active">
-                <a href="{{ route('backoffice.dashboard') }}">
+                <a href="{{ route('bo.dash') }}">
                     <i class="fa fa-dashboard"></i> <span>Panel de Control</span>
                 </a>
             </li>
-
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-edit"></i> <span>Cursos</span>
@@ -37,41 +28,12 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li>
-                        <a href="">
-                            <i class="fa fa-circle-o"></i> Reporte
-                        </a>
-                    </li>
+                    <li><a href=""><i class="fa fa-circle-o"></i> Reporte</a></li>
                 </ul>
             </li>
-
-            <li class="treeview">
-                <a href="#">
-                    <i class="fa fa-users"></i> <span>Usuarios</span>
-                    <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li>
-                        <a href="">
-                            <i class="fa fa-circle-o"></i> Validar Alumnos
-                        </a>
-                    </li>
-                </ul>
-            </li>
-
-            <li>
-                <a href="">
-                    <i class="fa fa-list"></i> <span>Categorías</span>
-                </a>
-            </li>
-
-            <li>
-                <a href="">
-                    <i class="fa fa-book"></i> <span>Noticias</span>
-                </a>
-            </li>
+            <li><a href="{{ route('bo.users') }}"><i class="fa fa-users"></i> <span>Usuarios</span></a></li>
+            <li><a href=""><i class="fa fa-list"></i> <span>Categorías</span></a></li>
+            <li><a href=""><i class="fa fa-book"></i> <span>Noticias</span></a></li>
         </ul>
     </section>
 </aside>
