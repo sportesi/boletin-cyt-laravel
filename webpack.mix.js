@@ -13,10 +13,9 @@ let mix = require('laravel-mix');
 
 /* Frontend Assets */
 
-// mix.js('resources/assets/js/app.js', 'public/js')
-//     .sass('resources/assets/sass/app.scss', 'public/css')
-//     .copyDirectory('resources/assets/images', 'public/images')
-// ;
+mix.js('resources/assets/js/app.js', 'public/js');
+mix.sass('resources/assets/sass/app.scss', 'public/css');
+mix.copyDirectory('resources/assets/images/', 'public/images');
 
 /* Backoffice Scripts */
 mix.js('resources/backoffice_assets/js/app.js', 'public/backoffice/js/app.min.js');
