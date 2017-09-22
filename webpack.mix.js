@@ -13,11 +13,11 @@ let mix = require('laravel-mix');
 
 /* Frontend Assets */
 
-mix.js('resources/assets/js/app.js', 'public/js');
-mix.sass('resources/assets/sass/app.scss', 'public/css');
+mix.js('resources/assets/js/app.js', 'public/js/app.min.js');
+mix.sass('resources/assets/sass/app.scss', 'public/css/app.min.css');
 mix.copyDirectory('resources/assets/images/', 'public/images');
 
 /* Backoffice Scripts */
 mix.js('resources/backoffice_assets/js/app.js', 'public/backoffice/js/app.min.js');
-mix.sass('resources/backoffice_assets/css/app.sass', 'public/backoffice/css/app.min.css');
+mix.sass('resources/backoffice_assets/css/app.scss', 'public/backoffice/css/app.min.css');
 mix.copy('node_modules/admin-lte/dist/img', 'public/backoffice/img');
