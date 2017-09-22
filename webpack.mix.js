@@ -11,10 +11,14 @@ let mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/assets/js/app.js', 'public/js')
-    .sass('resources/assets/sass/app.scss', 'public/css')
-    .copyDirectory('resources/assets/images', 'public/images')
-    .copy('node_modules/admin-lte/dist/css/AdminLTE.min.css', 'public/backoffice/css')
-    .copy('node_modules/admin-lte/dist/css/skins/skin-purple.min.css', 'public/backoffice/css')
-    .copy('node_modules/admin-lte/dist/js/app.min.js', 'public/backoffice/js')
-;
+/* Frontend Assets */
+
+// mix.js('resources/assets/js/app.js', 'public/js')
+//     .sass('resources/assets/sass/app.scss', 'public/css')
+//     .copyDirectory('resources/assets/images', 'public/images')
+// ;
+
+/* Backoffice Scripts */
+mix.js('resources/backoffice_assets/js/app.js', 'public/backoffice/js/app.min.js');
+mix.sass('resources/backoffice_assets/css/app.sass', 'public/backoffice/css/app.min.css');
+mix.copy('node_modules/admin-lte/dist/img', 'public/backoffice/img');

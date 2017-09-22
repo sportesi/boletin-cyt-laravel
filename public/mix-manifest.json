@@ -1,7 +1,4 @@
 {
-    "/js/app.js": "/js/app.js",
-    "/css/app.css": "/css/app.css",
-    "/backoffice/css/AdminLTE.min.css": "/backoffice/css/AdminLTE.min.css",
-    "/backoffice/css/skin-purple.min.css": "/backoffice/css/skin-purple.min.css",
-    "/backoffice/js/app.min.js": "/backoffice/js/app.min.js"
+    "/backoffice/js/app.min.js": "/backoffice/js/app.min.js",
+    "/backoffice/css/app.min.css": "/backoffice/css/app.min.css"
 }
