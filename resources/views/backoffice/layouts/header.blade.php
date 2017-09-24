@@ -249,7 +249,9 @@
                             <a href="#" class="btn btn-default btn-flat">Perfil</a>
                         </div>
                         <div class="pull-right">
-                            <a href="#" class="btn btn-default btn-flat">Cerrar Sesión</a>
+                            <a onclick="logout();" class="btn btn-default btn-flat">Cerrar Sesión</a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hide">{{ csrf_field() }}</form>
+                            <script>function logout(){event.preventDefault();document.getElementById('logout-form').submit();}</script>
                         </div>
                     </li>
                 </ul>
