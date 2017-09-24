@@ -11,7 +11,7 @@
     <title>{{ config('app.name') }}</title>
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/app.min.css') }}" rel="stylesheet">
 </head>
 <body>
 
@@ -48,6 +48,6 @@
 </div>
 
 <!-- Scripts -->
-<script src="{{ asset('js/app.js') }}"></script>
+<script src="{{ asset('js/app.min.js') }}"></script>
 </body>
 </html>
