@@ -7,7 +7,7 @@
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-body">
-                    <table class="table table-bordered table-striped" width="100%">
+                    <table class="table table-bordered table-striped table-js" width="100%">
                         <thead>
                             <tr>
                                 <th>Nombre</th>

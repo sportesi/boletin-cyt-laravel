@@ -10,6 +10,8 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
         <link rel="stylesheet" href="{{ asset('backoffice/css/app.min.css') }}">
+
+        @yield('styles')
     </head>
     <body class="hold-transition skin-purple sidebar-mini">
         <div class="wrapper">
@@ -47,6 +49,8 @@
         </div>
 
         <script src="{{ asset('backoffice/js/app.min.js') }}">$.widget.bridge('uibutton', $.ui.button);</script>
+
+        @yield('scripts')
 
     </body>
 </html>

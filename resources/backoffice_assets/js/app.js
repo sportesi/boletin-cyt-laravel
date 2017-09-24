@@ -3,3 +3,4 @@ require('jquery-ui');
 require('bootstrap-sass');
 require('admin-lte');
 require('datatables.net-bs');
+require('./user');
