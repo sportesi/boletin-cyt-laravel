@@ -42,5 +42,9 @@ Route::group(['prefix' => '/backoffice', 'middleware' => ['role:admin']], functi
 
     Route::group(['prefix' => '/user'], function () {
        Route::get('/', 'Backoffice\\UserController@index')->name('bo.users');
+       Route::get('/create', 'Backoffice\\UserController@create')->name('bo.users.create');
+       Route::post('/store', 'Backoffice\\UserController@store')->name('bo.users.store');
+       Route::get('/edit/{id}', 'Backoffice\\UserController@edit')->name('bo.users.edit');
+       Route::post('/update/{id}', 'Backoffice\\UserController@update')->name('bo.users.update');
     });
 });

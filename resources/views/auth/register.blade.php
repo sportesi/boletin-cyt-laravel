@@ -11,7 +11,8 @@
                 <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                     <label for="name" class="col-md-4 control-label">Nombre</label>
                     <div class="col-md-6">
-                        <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
+                        <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required
+                               autofocus>
                         @if ($errors->has('name'))
                             <span class="help-block"> <strong>{{ $errors->first('name') }}</strong> </span>
                         @endif
@@ -21,7 +22,8 @@
                 <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                     <label for="email" class="col-md-4 control-label">E-Mail</label>
                     <div class="col-md-6">
-                        <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
+                        <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}"
+                               required>
                         @if ($errors->has('email'))
                             <span class="help-block"> <strong>{{ $errors->first('email') }}</strong> </span>
                         @endif
@@ -41,7 +43,8 @@
                 <div class="form-group">
                     <label for="password-confirm" class="col-md-4 control-label">Confirmar Contraseña</label>
                     <div class="col-md-6">
-                        <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                        <input id="password-confirm" type="password" class="form-control" name="password_confirmation"
+                               required>
                     </div>
                 </div>
 
@@ -76,17 +79,11 @@
                     <div class="col-md-6">
                         <select name="comission" id="comission" class="form-control" required>
                             <option value="">Seleccione...</option>
-                            <option value="A">A</option>
-                            <option value="B">B</option>
-                            <option value="C">C</option>
-                            <option value="D">D</option>
-                            <option value="E">E</option>
-                            <option value="F">F</option>
-                            <option value="G">G</option>
-                            <option value="H">H</option>
-                            <option value="I">I</option>
-                            <option value="J">J</option>
-                            <option value="K">K</option>
+                            @foreach(['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K'] as $a)
+                                <option value="{{ $a }}">
+                                    {{ $a }}
+                                </option>
+                            @endforeach
                         </select>
                     </div>
                 </div>
@@ -96,11 +93,9 @@
                     <div class="col-md-6">
                         <select name="year" id="year" class="form-control" required>
                             <option value="">Seleccione...</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
+                            @for($i = 2010; $i <= 2025; $i++)
+                                <option value="{{ $i }}">{{ $i }}</option>
+                            @endfor
                         </select>
                     </div>
                 </div>

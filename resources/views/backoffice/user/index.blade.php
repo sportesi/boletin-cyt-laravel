@@ -21,12 +21,36 @@
                         <tbody>
                             @foreach($users as $user)
                                 <tr>
-                                    <td>{{ $user->name }}</td>
-                                    <td>{{ $user->email }}</td>
-                                    <td>{{ $user->turn->name }}</td>
-                                    <td>{{ $user->comission }}</td>
-                                    <td>{{ $user->year }}</td>
-                                    <td>{{ $user->campus->name }}</td>
+                                    <td>
+                                        <a href="{{ route('bo.users.edit', ['id'=> $user->id]) }}">
+                                            {{ $user->name }}
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="{{ route('bo.users.edit', ['id'=> $user->id]) }}">
+                                            {{ $user->email }}
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="{{ route('bo.users.edit', ['id'=> $user->id]) }}">
+                                            {{ $user->turn->name }}
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="{{ route('bo.users.edit', ['id'=> $user->id]) }}">
+                                            {{ $user->comission }}
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="{{ route('bo.users.edit', ['id'=> $user->id]) }}">
+                                            {{ $user->year }}
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="{{ route('bo.users.edit', ['id'=> $user->id]) }}">
+                                            {{ $user->campus->name }}
+                                        </a>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>
