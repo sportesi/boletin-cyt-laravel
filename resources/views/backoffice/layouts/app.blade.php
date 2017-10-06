@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
+        <title>{{ config('app.name') }}</title>
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
               integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -51,6 +51,20 @@
         <script src="{{ asset('backoffice/js/app.min.js') }}">$.widget.bridge('uibutton', $.ui.button);</script>
 
         @yield('scripts')
+        <script>
+            @if(Session::has('success'))
+            $.notify(
+                {message: '{{ Session::get('success') }}'},
+                {type: 'success'}
+            );
+            @endif
+            @if(Session::has('danger'))
+            $.notify(
+                {message: '{{ Session::get('danger') }}'},
+                {type: 'danger'}
+            );
+            @endif
+        </script>
 
     </body>
 </html>

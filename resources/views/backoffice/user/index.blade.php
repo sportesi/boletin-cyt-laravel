@@ -16,6 +16,7 @@
                                 <th>Comisión</th>
                                 <th>Año</th>
                                 <th>Sede</th>
+                                <th>Estado</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -50,6 +51,11 @@
                                         <a href="{{ route('bo.users.edit', ['id'=> $user->id]) }}">
                                             {{ $user->campus->name }}
                                         </a>
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-xs btn-{{ $user->validated ? 'success' : 'danger'}}">
+                                            {{ $user->validated ? 'Validado' : 'No Validado'}}
+                                        </button>
                                     </td>
                                 </tr>
                             @endforeach

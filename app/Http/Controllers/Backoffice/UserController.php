@@ -95,25 +95,18 @@ class UserController extends Controller
         try {
             $user = User::find($id);
 
-            $updatedFields = [
-                'name' => $request->get('name'),
-                'email' => $request->get('email'),
-                'turn_id' => $request->get('turn'),
-                'campus_id' => $request->get('campus'),
-                'comission' => $request->get('comission'),
-                'year' => $request->get('year'),
-            ];
-
-            $user->name = $updatedFields['name'];
-            $user->email = $updatedFields['email'];
-            $user->turn_id = $updatedFields['turn_id'];
-            $user->campus_id = $updatedFields['campus_id'];
-            $user->comission = $updatedFields['comission'];
-            $user->year = $updatedFields['year'];
+            $user->name = $request->get('name');
+            $user->email = $request->get('email');
+            $user->turn_id = $request->get('turn');
+            $user->campus_id = $request->get('campus');
+            $user->comission = $request->get('comission');
+            $user->year = $request->get('year');
+            $user->validated = $request->get('validated') === 'on';
 
             $user->save();
+            $request->session()->flash('success', '¡Usuario actualizado!');
         } catch (\Exception $exception) {
-            dd($exception);
+            $request->session()->flash('success', 'Oh oh... algo ha ocurrido. Intente nuevamente.');
         }
 
         return redirect()->route('bo.users.edit', ['id' => $id]);

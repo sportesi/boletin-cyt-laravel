@@ -74,6 +74,18 @@
                             </select>
                         </div>
 
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Opciones</label>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" id="validated" name="validated"
+                                                {{ $user->validated === 1 ? 'checked' : '' }}> Validado
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="form-group">
                             <button class="btn btn-primary">Guardar</button>
                         </div>
