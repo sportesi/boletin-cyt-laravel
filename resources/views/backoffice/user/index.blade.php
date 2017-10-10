@@ -23,32 +23,32 @@
                             @foreach($users as $user)
                                 <tr>
                                     <td>
-                                        <a href="{{ route('bo.users.edit', ['id'=> $user->id]) }}">
+                                        <a href="{{ route('backoffice.user.edit', ['id'=> $user->id]) }}">
                                             {{ $user->name }}
                                         </a>
                                     </td>
                                     <td>
-                                        <a href="{{ route('bo.users.edit', ['id'=> $user->id]) }}">
+                                        <a href="{{ route('backoffice.user.edit', ['id'=> $user->id]) }}">
                                             {{ $user->email }}
                                         </a>
                                     </td>
                                     <td>
-                                        <a href="{{ route('bo.users.edit', ['id'=> $user->id]) }}">
+                                        <a href="{{ route('backoffice.user.edit', ['id'=> $user->id]) }}">
                                             {{ $user->turn->name }}
                                         </a>
                                     </td>
                                     <td>
-                                        <a href="{{ route('bo.users.edit', ['id'=> $user->id]) }}">
+                                        <a href="{{ route('backoffice.user.edit', ['id'=> $user->id]) }}">
                                             {{ $user->comission }}
                                         </a>
                                     </td>
                                     <td>
-                                        <a href="{{ route('bo.users.edit', ['id'=> $user->id]) }}">
+                                        <a href="{{ route('backoffice.user.edit', ['id'=> $user->id]) }}">
                                             {{ $user->year }}
                                         </a>
                                     </td>
                                     <td>
-                                        <a href="{{ route('bo.users.edit', ['id'=> $user->id]) }}">
+                                        <a href="{{ route('backoffice.user.edit', ['id'=> $user->id]) }}">
                                             {{ $user->campus->name }}
                                         </a>
                                     </td>

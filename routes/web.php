@@ -1,8 +1,5 @@
 <?php
 
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,16 +32,7 @@ Route::group(['prefix' => '/user'], function () {
 /* BackofficeRoutes */
 
 Route::group(['prefix' => '/backoffice', 'middleware' => ['role:admin']], function () {
-    /* Dashboard */
     Route::get('/dashboard', 'Backoffice\\DashboardController@index')->name('bo.dash');
-
-    /* User */
-
-    Route::group(['prefix' => '/user'], function () {
-       Route::get('/', 'Backoffice\\UserController@index')->name('bo.users');
-       Route::get('/create', 'Backoffice\\UserController@create')->name('bo.users.create');
-       Route::post('/store', 'Backoffice\\UserController@store')->name('bo.users.store');
-       Route::get('/edit/{id}', 'Backoffice\\UserController@edit')->name('bo.users.edit');
-       Route::post('/update/{id}', 'Backoffice\\UserController@update')->name('bo.users.update');
-    });
+    Route::resource('user', 'Backoffice\\UserController', ['as' => 'backoffice']);
+    Route::resource('category', 'Backoffice\\CategoryController', ['as' => 'backoffice']);
 });

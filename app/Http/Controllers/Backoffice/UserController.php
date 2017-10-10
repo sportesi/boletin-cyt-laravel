@@ -61,7 +61,7 @@ class UserController extends Controller
             dd($exception);
         }
 
-        return redirect()->route('bo.users');
+        return redirect()->route('backoffice.user.index');
     }
 
     /**
@@ -109,7 +109,7 @@ class UserController extends Controller
             $request->session()->flash('success', 'Oh oh... algo ha ocurrido. Intente nuevamente.');
         }
 
-        return redirect()->route('bo.users.edit', ['id' => $id]);
+        return redirect()->route('backoffice.user.edit', ['id' => $id]);
     }
 
     /**

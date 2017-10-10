@@ -31,7 +31,7 @@
                     <li><a href=""><i class="fa fa-circle-o"></i> Reporte</a></li>
                 </ul>
             </li>
-            <li><a href="{{ route('bo.users') }}"><i class="fa fa-users"></i> <span>Usuarios</span></a></li>
+            <li><a href="{{ route('backoffice.user.index') }}"><i class="fa fa-users"></i> <span>Usuarios</span></a></li>
             <li><a href=""><i class="fa fa-list"></i> <span>Categorías</span></a></li>
             <li><a href=""><i class="fa fa-book"></i> <span>Noticias</span></a></li>
         </ul>

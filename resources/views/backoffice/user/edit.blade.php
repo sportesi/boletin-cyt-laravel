@@ -9,13 +9,16 @@
                 <div class="box-body">
                     @php
                         if ($user->id) {
-                            $formRoute = route('bo.users.update', ['id' => $user->id]);
+                            $formRoute = route('backoffice.user.update', ['id' => $user->id]);
                         } else {
-                            $formRoute = route('bo.users.store');
+                            $formRoute = route('backoffice.user.store');
                         }
                     @endphp
                     <form action="{{ $formRoute }}" method="post">
                         {{ csrf_field() }}
+                        @if($user->id)
+                            {{ method_field('PUT') }}
+                        @endif
                         <div class="form-group">
                             <label for="name">Nombre y Apellido</label>
                             <input type="text" class="form-control" name="name" id="name" value="{{ $user->name }}"/>
