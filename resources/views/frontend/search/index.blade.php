@@ -1,7 +1,7 @@
-@extends('layouts.app')
+@extends('frontend.layouts.app')
 
 @section('section', 'Búsqueda de Noticias')
 
 @section('content')
-    @include('news.news')
+    @include('frontend.news.news')
 @endsection

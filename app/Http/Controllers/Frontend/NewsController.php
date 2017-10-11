@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\User;
+namespace App\Http\Controllers\Frontend;
 
 use App\Category;
 use App\Http\Controllers\Controller;
@@ -25,9 +25,11 @@ class NewsController extends Controller
      */
     public function index()
     {
-        $news = News::where('user_id', Auth::user()->id)->orderBy('date', 'desc')->paginate(3);
+        $news = News::where('user_id', Auth::user()->id)
+            ->orderBy('date', 'desc')
+            ->paginate(3);
 
-        return view('user.news.index', ['news' => $news]);
+        return view('frontend.news.index', ['news' => $news]);
     }
 
     /**
@@ -39,7 +41,7 @@ class NewsController extends Controller
     {
         $categories = Category::where('status', 1)->get();
 
-        return view('user.news.edit', ["categories" => $categories]);
+        return view('frontend.news.edit', ["categories" => $categories]);
     }
 
     /**
@@ -63,7 +65,7 @@ class NewsController extends Controller
             "link_3" => $request->get("link_3")
         ]);
 
-        return redirect()->route('user.news');
+        return redirect()->route('news.index');
     }
 
     /**

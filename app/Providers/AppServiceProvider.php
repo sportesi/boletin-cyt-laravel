@@ -14,7 +14,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        view()->composer('layouts.sidebar', function ($view) {
+        view()->composer('frontend.layouts.sidebar', function ($view) {
             $view->with('categories', Category::active());
         });
     }

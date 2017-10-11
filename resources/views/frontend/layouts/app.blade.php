@@ -20,7 +20,7 @@
 
         <div class="col-md-12">
             <div class="page-header">
-                @include('layouts.nav')
+                @include('frontend.layouts.nav')
                 <div class="section-header">
                     <div class="row">
                         <div class="col-md-9">
@@ -42,7 +42,7 @@
         </div>
 
         <div class="col-md-3 text-center">
-            @include('layouts.sidebar')
+            @include('frontend.layouts.sidebar')
         </div>
     </div>
 </div>

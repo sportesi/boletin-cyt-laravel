@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('frontend.layouts.app')
 
 @section('section', 'Mis Noticias')
 
@@ -6,12 +6,12 @@
 
     <div class="row">
         <div class="col-md-12">
-            <a href="{{ route('user.news.create') }}" class="btn btn-primary">Crear Noticia</a>
+            <a href="{{ route('news.create') }}" class="btn btn-primary">Crear Noticia</a>
         </div>
     </div>
 
     <br>
 
-    @include('news.news')
+    @include('frontend.news.news')
 
 @endsection

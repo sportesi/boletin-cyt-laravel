@@ -13,21 +13,13 @@
 
 Auth::routes();
 
-Route::get('/', 'HomeController@index')->name('home');
-Route::get('/home', 'HomeController@index')->name('home-2');
-Route::get('/search', 'SearchController@index')->name('search');
-Route::get('/category/{id}', 'CategoryController@index')->name('category');
+/* Frontend Routes */
 
-
-/* UserRoutes */
-Route::group(['prefix' => '/user'], function () {
-    Route::group(['prefix' => '/news'], function () {
-        Route::get('/', 'User\\NewsController@index')->name('user.news');
-        Route::get('/create', 'User\\NewsController@create')->name('user.news.create');
-        Route::post('/store', 'User\\NewsController@store')->name('user.news.store');
-    });
-});
-
+Route::get('/', 'Frontend\\HomeController@index')->name('home');
+Route::get('/home', 'Frontend\\HomeController@index')->name('home-2');
+Route::get('/search', 'Frontend\\SearchController@index')->name('search');
+Route::get('/category/{id}', 'Frontend\\CategoryController@index')->name('category');
+Route::resource('news', 'Frontend\\NewsController');
 
 /* BackofficeRoutes */
 
