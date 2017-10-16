@@ -9,20 +9,20 @@
             <form class="form-horizontal" action="{{ route('news.store') }}" method="post">
                 {{ csrf_field() }}
                 <div class="form-group">
-                    <label for="category_id" class="col-sm-2 control-label">Categoría</label>
+                    <label for="category_id" class="col-sm-2 control-label">Categoría *</label>
                     <div class="col-sm-10">
-                        <select name="category_id" id="category_id" class="form-control">
+                        <select name="category_id" id="category_id" class="form-control" required>
                             <option value="">Seleccione...</option>
                             @foreach($categories as $category)
-                                <option value="{{ $category->id }}">{{ utf8_decode($category->name) }}</option>
+                                <option value="{{ $category->id }}">{{ $category->name }}</option>
                             @endforeach
                         </select>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="title" class="col-sm-2 control-label">Título</label>
+                    <label for="title" class="col-sm-2 control-label">Título *</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="title" name="title">
+                        <input type="text" class="form-control" id="title" name="title" required>
                     </div>
                 </div>
                 <div class="form-group">
@@ -32,10 +32,10 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="summary" class="col-sm-2 control-label">Resumen</label>
+                    <label for="summary" class="col-sm-2 control-label">Resumen *</label>
                     <div class="col-sm-10">
                 <textarea name="summary" id="summary" class="form-control" cols="30" rows="10"
-                          maxlength="250"></textarea>
+                          maxlength="250" required></textarea>
                     </div>
                 </div>
                 <div class="form-group">
@@ -46,15 +46,15 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="image_url" class="col-sm-2 control-label">Link Imágen</label>
+                    <label for="image_url" class="col-sm-2 control-label">Link Imágen *</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="image_url" name="image_url">
+                        <input type="text" class="form-control" id="image_url" name="image_url" required>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="link_1" class="col-sm-2 control-label">Link Noticia</label>
+                    <label for="link_1" class="col-sm-2 control-label">Link Noticia *</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="link_1" name="link_1">
+                        <input type="text" class="form-control" id="link_1" name="link_1" required>
                     </div>
                 </div>
                 <div class="form-group">
