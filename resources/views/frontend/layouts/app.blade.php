@@ -23,6 +23,11 @@
                 @include('frontend.layouts.nav')
                 <div class="section-header">
                     <div class="row">
+                        @if(Session::has('register-success'))
+                            <div class="alert alert-success">
+                                <p>{{ Session::get('register-success') }}</p>
+                            </div>
+                        @endif
                         <div class="col-md-9">
                             <h3>@yield('section')</h3>
                         </div>
