@@ -27,4 +27,8 @@ Route::group(['prefix' => '/backoffice', 'middleware' => ['role:admin']], functi
     Route::get('/dashboard', 'Backoffice\\DashboardController@index')->name('bo.dash');
     Route::resource('user', 'Backoffice\\UserController', ['as' => 'backoffice']);
     Route::resource('category', 'Backoffice\\CategoryController', ['as' => 'backoffice']);
+    Route::resource('course', 'Backoffice\\CourseController', [
+        'as' => 'backoffice',
+        'only' => ['index']
+    ]);
 });

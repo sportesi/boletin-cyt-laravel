@@ -14,11 +14,21 @@ class UserController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param Request $request
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $users = User::all();
+        if ($request->get('course')) {
+            $users = User::where([
+                'turn_id' => $request->get('course')['turn_id'],
+                'campus_id' => $request->get('course')['campus_id'],
+                'comission' => $request->get('course')['comission'],
+                'year' => $request->get('course')['year'],
+            ])->get();
+        } else {
+            $users = User::all();
+        }
 
         return view('backoffice.user.index', ['users' => $users]);
     }

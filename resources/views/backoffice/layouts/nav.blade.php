@@ -20,17 +20,7 @@
                     <i class="fa fa-dashboard"></i> <span>Panel de Control</span>
                 </a>
             </li>
-            <li class="treeview">
-                <a href="#">
-                    <i class="fa fa-edit"></i> <span>Cursos</span>
-                    <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href=""><i class="fa fa-circle-o"></i> Reporte</a></li>
-                </ul>
-            </li>
+            <li><a href="{{ route('backoffice.course.index') }}"><i class="fa fa-edit"></i> <span>Cursos</span></a></li>
             <li><a href="{{ route('backoffice.user.index') }}"><i class="fa fa-users"></i> <span>Usuarios</span></a></li>
             <li><a href="{{ route('backoffice.category.index') }}"><i class="fa fa-list"></i> <span>Categorías</span></a></li>
             <li><a href=""><i class="fa fa-book"></i> <span>Noticias</span></a></li>

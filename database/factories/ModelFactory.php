@@ -14,6 +14,7 @@
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 $factory->define(App\User::class, function (Faker\Generator $faker) {
     static $password;
+    static $comission = ['A', 'B', 'C'];
 
     return [
         'name' => $faker->name,
@@ -22,9 +23,9 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
         'turn_id' => 1,
         'campus_id' => 1,
-        'year' => $faker->numberBetween(2011, 2017),
-        'comission' => strtoupper($faker->randomLetter),
-        'validated' => true,
+        'year' => $faker->numberBetween(2015, 2017),
+        'comission' => $faker->randomElement($comission),
+        'validated' => false,
     ];
 });
 
