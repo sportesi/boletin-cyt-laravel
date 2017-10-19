@@ -60,6 +60,6 @@ class User extends Authenticatable
 
     public function getRoleName()
     {
-        return $this->roles() ? $this->roles()->first()->display_name : '';
+        return $this->roles()->count() ? $this->roles()->first()->display_name : '';
     }
 }
