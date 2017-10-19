@@ -21,6 +21,14 @@
                 @if(\Illuminate\Support\Facades\Auth::check())
                     <ul class="nav navbar-nav navbar-right">
                         @if(\Illuminate\Support\Facades\Auth::check())
+                            <li>
+                                <a href="{{ route('news.create') }}">
+                                    <span class="btn btn-primary btn-xs">
+                                        <i class="fa fa-plus"></i>
+                                        Crear Noticia
+                                    </span>
+                                </a>
+                            </li>
                             @if(\Illuminate\Support\Facades\Auth::user()->hasRole('admin'))
                                 <li><a href="{{ route('bo.dash') }}">Panel de Control</a></li>
                             @endif
@@ -35,7 +43,7 @@
                                 <li><a href="#">Rendimiento</a></li>
                                 <li><a href="#">Configuración</a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a onclick="logout();">Cerrar sesión</a></li>
+                                <li><a href="#" onclick="logout();">Cerrar sesión</a></li>
                             </ul>
                         </li>
                     </ul>
