@@ -55,21 +55,17 @@
     <div class="container">
         <div class="panel panel-default" style="margin: 0;">
             <div class="panel-body">
-                <div class="col-md-12 text-center">
+                <div class="col-md-12">
                     <div class="col-md-4">
-                        <p><b>Boletín Científico Tecnológico</b></p>
+                        <p><img src="{{ asset('/images/uai-vertical.png') }}" style="width: 100%;" id="Logo UAI"/></p>
+                    </div>
+                    <div class="col-md-4">
+                        <p>Boletín Científico Tecnológico</p>
+                        <p>Proyecto de extensión universitaria</p>
                     </div>
                     <div class="col-md-4">
                         <p><b>Coordinación: </b>Enrique Cingolani</p>
-                    </div>
-                    <div class="col-md-4">
                         <p><b>Desarrollo: </b>Sebastián Portesi</p>
-                    </div>
-                    <div class="col-md-6">
-                        <p>Proyecto de extensión universitaria</p>
-                    </div>
-                    <div class="col-md-6">
-                        <p>Universidad Abierta Interamericana</p>
                     </div>
                 </div>
             </div>
