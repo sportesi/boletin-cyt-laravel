@@ -73,6 +73,7 @@
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
                         <button type="submit" class="btn btn-primary">Crear Noticia</button>
+                        <a href="{{ route('news.index') }}" class="btn btn-default">Cancelar</a>
                     </div>
                 </div>
             </form>
