@@ -16,6 +16,7 @@
                                 <th>Comisión</th>
                                 <th>Año</th>
                                 <th>Sede</th>
+                                <th>Rol</th>
                                 <th>Estado</th>
                             </tr>
                         </thead>
@@ -50,6 +51,11 @@
                                     <td>
                                         <a href="{{ route('backoffice.user.edit', ['id'=> $user->id]) }}">
                                             {{ $user->campus->name }}
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="{{ route('backoffice.user.edit', ['id'=> $user->id]) }}">
+                                            {{ $user->getRoleName() }}
                                         </a>
                                     </td>
                                     <td>

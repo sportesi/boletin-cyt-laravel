@@ -57,4 +57,9 @@ class User extends Authenticatable
     {
         $this->notify(new ResetPasswordNotification($token));
     }
+
+    public function getRoleName()
+    {
+        return $this->roles()->first()->display_name;
+    }
 }
