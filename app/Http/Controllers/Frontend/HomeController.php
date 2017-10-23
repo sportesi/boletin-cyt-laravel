@@ -10,8 +10,8 @@ class HomeController extends Controller
     /** @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View */
     public function index()
     {
-        $news = News::orderBy('date', 'desc')->paginate(3);
-        $slider = News::orderBy('date', 'desc')->take(5)->get();
+        $news = News::orderBy('created_at', 'desc')->paginate(3);
+        $slider = News::orderBy('created_at', 'desc')->take(5)->get();
 
         return view('frontend.home.index', [
             'news' => $news,

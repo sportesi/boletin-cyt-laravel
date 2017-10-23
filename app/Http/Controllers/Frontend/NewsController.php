@@ -26,7 +26,7 @@ class NewsController extends Controller
     public function index()
     {
         $news = News::where('user_id', Auth::user()->id)
-            ->orderBy('date', 'desc')
+            ->orderBy('created_at', 'desc')
             ->paginate(3);
 
         return view('frontend.news.index', ['news' => $news]);
