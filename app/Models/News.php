@@ -18,4 +18,9 @@ class News extends Model
         $user = $this->user()->first();
         return "$user->name ( $user->year $user->comission - " . $user->turn->name . " )";
     }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 }

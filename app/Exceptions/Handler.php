@@ -49,7 +49,7 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
-        if ($exception->getStatusCode() === 403) {
+        if ($exception->getCode() === 403) {
             return redirect()->route('login');
         }
 
