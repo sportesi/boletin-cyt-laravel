@@ -22,13 +22,13 @@
                 <div class="form-group">
                     <label for="title" class="col-sm-2 control-label">Título *</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="title" name="title" required>
+                        <input type="text" class="form-control" id="title" name="title" maxlength="255" required>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="sub_title" class="col-sm-2 control-label">Sub Título</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="sub_title" name="sub_title">
+                        <input type="text" class="form-control" id="sub_title" name="sub_title" maxlength="255">
                     </div>
                 </div>
                 <div class="form-group">

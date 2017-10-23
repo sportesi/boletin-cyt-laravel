@@ -8,10 +8,13 @@
                 <div class="panel panel-info">
                     <div class="panel-heading">
                         <b>{{ utf8_decode($new->title) }}</b>
+                        <p>
+                            <small>{{ utf8_decode($new->sub_title) }}</small>
+                        </p>
                     </div>
                     <div class="panel-body">
-                        <p>{{ utf8_decode($new->sub_summary) }}</p>
                         <p>{{ utf8_decode($new->summary) }}</p>
+                        <p><small>{{ utf8_decode($new->sub_summary) }}</small></p>
                         <div class="text-center">
                             @if($new->link_1)
                                 <a href="{!! $new->link_1 !!}" class="btn btn-info btn-sm" target="_blank">Nota
@@ -35,7 +38,7 @@
                 <div class="col-md-5">
                     @if($new->user)
                         <strong>Autor:&nbsp;</strong>
-                        <a href="{{--/user/statistics/index.php?id=1--}}">
+                        <a href="#{{--/user/statistics/index.php?id=1--}}">
                             {{ utf8_decode($new->getAuthor()) }}
                         </a>
                     @endif
