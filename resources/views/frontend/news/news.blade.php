@@ -16,9 +16,9 @@
                             {{ method_field('DELETE') }}
                         </form>
                         <script>
-                            function deleteNew() {
-                                if(confirm('¿Estás seguro de borrar esta noticia?')) {
-                                    {{-- TODO: Al confirmar la eliminacion, hacer submit del form a traves de js-form-new-{{ $new->id }}  --}}
+                            function deleteNew(newsId) {
+                                if (confirm('¿Estás seguro de borrar esta noticia?')) {
+                                    $('.js-form-new-' + newsId).submit();
                                 }
                             }
                         </script>

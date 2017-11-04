@@ -23,9 +23,10 @@
                 @include('frontend.layouts.nav')
                 <div class="section-header">
                     <div class="row">
-                        @if(Session::has('register-success'))
+                        @if(Session::has('register-success') || Session::has('success'))
                             <div class="alert alert-success">
                                 <p>{{ Session::get('register-success') }}</p>
+                                <p>{{ Session::get('success') }}</p>
                             </div>
                         @endif
                         <div class="col-md-9">
