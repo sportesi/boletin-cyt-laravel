@@ -1,5 +1,31 @@
 @foreach($news as $new)
     <div class="panel panel-info">
+        @if(Auth::check() && $new->user->id === Auth::user()->id)
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-md-3 pull-right text-right">
+                        <a href="{{ route('news.edit', [$new->id]) }}" class="btn btn-primary btn-xs">
+                            <i class="fa fa-pencil"></i> Editar
+                        </a>
+                        <button onclick="deleteNew({{ $new->id }})" class="btn btn-danger btn-xs">
+                            <i class="fa fa-trash"></i> Borrar
+                        </button>
+                        <form action="{{ route('news.destroy', [$new->id]) }}" method="post"
+                              class="hide js-form-new-{{ $new->id }}">
+                            {{ csrf_field() }}
+                            {{ method_field('DELETE') }}
+                        </form>
+                        <script>
+                            function deleteNew() {
+                                if(confirm('¿Estás seguro de borrar esta noticia?')) {
+                                    {{-- TODO: Al confirmar la eliminacion, hacer submit del form a traves de js-form-new-{{ $new->id }}  --}}
+                                }
+                            }
+                        </script>
+                    </div>
+                </div>
+            </div>
+        @endif
         <div class="panel-body no-padding">
             <div class="col-md-3">
                 <img class="img-thumbnail" src="{!! $new->image_url !!}"/>

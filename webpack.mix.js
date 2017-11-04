@@ -21,3 +21,5 @@ mix.copyDirectory('resources/assets/images/', 'public/images');
 mix.js('resources/backoffice_assets/js/app.js', 'public/backoffice/js/app.min.js');
 mix.sass('resources/backoffice_assets/css/app.scss', 'public/backoffice/css/app.min.css');
 mix.copy('node_modules/admin-lte/dist/img', 'public/backoffice/img');
+mix.copy('node_modules/admin-lte/dist/css/AdminLTE.min.css', 'public/backoffice/css/');
+mix.copy('node_modules/admin-lte/dist/css/skins/skin-purple.min.css', 'public/backoffice/css/');

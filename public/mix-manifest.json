@@ -2,5 +2,7 @@
     "/js/app.min.js": "/js/app.min.js",
     "/css/app.min.css": "/css/app.min.css",
     "/backoffice/css/app.min.css": "/backoffice/css/app.min.css",
-    "/backoffice/js/app.min.js": "/backoffice/js/app.min.js"
+    "/backoffice/js/app.min.js": "/backoffice/js/app.min.js",
+    "/backoffice/css/AdminLTE.min.css": "/backoffice/css/AdminLTE.min.css",
+    "/backoffice/css/skin-purple.min.css": "/backoffice/css/skin-purple.min.css"
 }
