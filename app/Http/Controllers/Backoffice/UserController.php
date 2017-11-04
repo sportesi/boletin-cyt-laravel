@@ -4,10 +4,12 @@ namespace App\Http\Controllers\Backoffice;
 
 use App\Campus;
 use App\Http\Controllers\Controller;
+use App\Role;
 use App\Turn;
 use App\User;
 use Faker\Generator;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -44,6 +46,7 @@ class UserController extends Controller
             'user' => new User(),
             'campuses' => Campus::all(),
             'turns' => Turn::all(),
+            'roles' => Role::all()
         ]);
     }
 
@@ -57,7 +60,7 @@ class UserController extends Controller
     public function store(Generator $generator, Request $request)
     {
         try {
-            User::create([
+            $user = User::create([
                 'name' => $request->get('name'),
                 'email' => $request->get('email'),
                 'turn_id' => $request->get('turn'),
@@ -67,6 +70,7 @@ class UserController extends Controller
                 'password' => bcrypt($generator->password()),
                 'validated' => true,
             ]);
+            $user->attachRole(Role::find($request->get('role')));
         } catch (\Exception $exception) {
             dd($exception);
         }
@@ -82,14 +86,11 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $user = User::find($id);
-        $campuses = Campus::all();
-        $turns = Turn::all();
-
         return view('backoffice.user.edit', [
-            'user' => $user,
-            'campuses' => $campuses,
-            'turns' => $turns,
+            'user' => User::find($id),
+            'campuses' => Campus::all(),
+            'turns' => Turn::all(),
+            'roles' => Role::all()
         ]);
     }
 
@@ -112,6 +113,8 @@ class UserController extends Controller
             $user->comission = $request->get('comission');
             $user->year = $request->get('year');
             $user->validated = $request->get('validated') === 'on';
+            $user->detachRoles();
+            $user->attachRole(Role::find($request->get('role')));
 
             $user->save();
             $request->session()->flash('success', '¡Usuario actualizado!');
@@ -125,11 +128,15 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int $id
+     * @param User $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(User $user)
     {
-        //
+        if (Auth::user()->hasRole('admin')) {
+            $user->delete();
+        }
+
+        return redirect()->route('backoffice.user.index');
     }
 }

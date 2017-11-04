@@ -77,6 +77,19 @@
                             </select>
                         </div>
 
+                        <div class="form-group">
+                            <label for="role">Role</label>
+                            <select name="role" id="role" class="form-control" required>
+                                <option value="">Seleccione...</option>
+                                @foreach($roles as $role)
+                                    <option value="{{ $role->id }}"
+                                            {{ $user->hasRole($role->name) ? 'selected' : '' }}>
+                                        {{ $role->display_name }}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>
+
                         <div class="row">
                             <div class="col-md-6">
                                 <label>Opciones</label>
@@ -91,8 +104,25 @@
 
                         <div class="form-group">
                             <button class="btn btn-primary">Guardar</button>
+                            @if($user->id)
+                                <button type="button" onclick="deleteUser();" class="btn btn-danger">Eliminar</button>
+                            @endif
                         </div>
                     </form>
+                    @if($user->id)
+                        <form action="{{ route('backoffice.user.destroy', [$user->id]) }}" method="post"
+                              class="js-form-delete">
+                            {{ csrf_field() }}
+                            {{ method_field('DELETE') }}
+                        </form>
+                        <script>
+                            function deleteUser() {
+                                if (confirm('¿Está seguro de eliminar este usuario?')) {
+                                    $('.js-form-delete').submit();
+                                }
+                            }
+                        </script>
+                    @endif
                 </div>
             </div>
         </div>

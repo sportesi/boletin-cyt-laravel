@@ -6,6 +6,16 @@
     <div class="row">
         <div class="col-xs-12">
             <div class="box">
+                <div class="box-header">
+                    <div class="row">
+                        <div class="col-md-3 pull-right text-right">
+                            <a href="{{ route('backoffice.user.create') }}" class="btn btn-primary btn-xs">
+                                <i class="fa fa-plus"></i>
+                                Crear Usuario
+                            </a>
+                        </div>
+                    </div>
+                </div>
                 <div class="box-body">
                     <table class="table table-bordered table-striped table-js" width="100%">
                         <thead>
@@ -50,7 +60,7 @@
                                     </td>
                                     <td>
                                         <a href="{{ route('backoffice.user.edit', ['id'=> $user->id]) }}">
-                                            {{ $user->campus->name }}
+                                            {{ $user->campus ? $user->campus->name : ' - '}}
                                         </a>
                                     </td>
                                     <td>
