@@ -20,6 +20,13 @@ Route::get('/home', 'Frontend\\HomeController@index')->name('home-2');
 Route::get('/search', 'Frontend\\SearchController@index')->name('search');
 Route::get('/category/{id}', 'Frontend\\CategoryController@index')->name('category');
 Route::resource('news', 'Frontend\\NewsController');
+Route::resource('profile', 'Frontend\\ProfileController', [
+    'only' => [
+        'show',
+        'edit',
+        'update'
+    ]
+]);
 
 /* BackofficeRoutes */
 
