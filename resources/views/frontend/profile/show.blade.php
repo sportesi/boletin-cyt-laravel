@@ -9,34 +9,27 @@
             <!-- Profile Image -->
             <div class="panel panel-primary">
                 <div class="panel-body box-profile">
-                    <img class="profile-user-img img-responsive img-circle" src="../../dist/img/user4-128x128.jpg" alt="User profile picture">
+                    <img class="profile-user-img img-responsive img-circle" src="" alt="User profile picture">
 
-                    <h3 class="profile-username text-center">Nina Mcintire</h3>
+                    <h3 class="profile-username text-center">{{ $user->name }}</h3>
 
-                    <p class="text-muted text-center">Software Engineer</p>
+                    <p class="text-muted text-center">{{ $user->getRoleName() }}</p>
 
                     <ul class="list-group list-group-unbordered">
                         <li class="list-group-item">
-                            <b>Followers</b> <a class="pull-right">1,322</a>
-                        </li>
-                        <li class="list-group-item">
-                            <b>Following</b> <a class="pull-right">543</a>
-                        </li>
-                        <li class="list-group-item">
-                            <b>Friends</b> <a class="pull-right">13,287</a>
+                            <b>Noticias</b> <a class="pull-right">{{ count($user->news) }}</a>
                         </li>
                     </ul>
 
-                    <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a>
+                    {{--<a href="#" class="btn btn-primary btn-block"><b>Follow</b></a>--}}
                 </div>
-                <!-- /.panel-body -->
             </div>
             <!-- /.panel -->
 
             <!-- About Me panel -->
             <div class="panel panel-primary">
                 <div class="panel-heading with-border">
-                    <h3 class="panel-title">About Me</h3>
+                    <h3 class="panel-title">Acerca de Mi</h3>
                 </div>
                 <!-- /.panel-heading -->
                 <div class="panel-body">
