@@ -1,8 +1,8 @@
-import { DataTableSpanish } from "./datatables.spanish";
+import {DataTableSpanish} from "./datatables.spanish";
 
 $(document).ready(() => {
-  $('.table-js').DataTable({
-    language: DataTableSpanish,
-    order: [6, 'asc']
-  });
+    $('.table-js').DataTable({
+        language: DataTableSpanish,
+        aaSorting: []
+    });
 });

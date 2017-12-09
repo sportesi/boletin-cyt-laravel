@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Notifications\RegistrationNotification;
+use App\Notifications\UserRegisteredNotification;
 use App\User;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -99,5 +101,20 @@ class RegisterController extends Controller
         );
 
         return $this->registered($request, $user) ?: redirect($this->redirectPath());
+    }
+
+    /**
+     * The user has been registered.
+     *
+     * @param Request $request
+     * @param User $user
+     */
+    public function registered(Request $request, $user)
+    {
+        $user->notify(new UserRegisteredNotification($user));
+
+        foreach (User::admins() as $user) {
+            $user->notify(new RegistrationNotification());
+        }
     }
 }

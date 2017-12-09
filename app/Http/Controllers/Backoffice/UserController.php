@@ -29,7 +29,7 @@ class UserController extends Controller
                 'year' => $request->get('course')['year'],
             ])->get();
         } else {
-            $users = User::all();
+            $users = User::orderBy('id', 'desc')->get();
         }
 
         return view('backoffice.user.index', ['users' => $users]);

@@ -73,4 +73,13 @@ class User extends Authenticatable
             $this->year
         ]);
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Collection|User[]
+     */
+    public static function admins()
+    {
+        return User::join('role_user', 'users.id', '=', 'role_user.user_id')
+            ->where('role_user.role_id', 1)->get();
+    }
 }
