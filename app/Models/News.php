@@ -16,7 +16,16 @@ class News extends Model
     public function getAuthor()
     {
         $user = $this->user()->first();
-        return "$user->name ( $user->year $user->comission - " . $user->turn->name . " )";
+
+        return implode(' ', [
+            $user->name,
+            '(',
+            $user->course_year . utf8_encode('°'),
+            $user->comission,
+            $user->year,
+            $user->turn->name,
+            ')',
+        ]);
     }
 
     public function category()

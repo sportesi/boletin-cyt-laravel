@@ -15,11 +15,11 @@ class CourseController extends Controller
     public function index()
     {
         $courses = DB::select('
-            SELECT turn_id, campus_id, t.name AS turn, c.name AS campus, year, comission, count(*) AS count 
+            SELECT turn_id, campus_id, t.name AS turn, c.name AS campus, year, comission, semester, course_year, count(*) AS count 
             FROM users
             LEFT JOIN turns t ON turn_id = t.id
             LEFT JOIN campuses c ON campus_id = c.id
-            GROUP BY t.name, turn_id, campus_id, c.name, year, comission
+            GROUP BY t.name, turn_id, campus_id, c.name, year, comission, semester, course_year
         ');
 
         return view('backoffice.course.index', ['courses' => $courses]);

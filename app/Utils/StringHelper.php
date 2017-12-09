@@ -6,6 +6,7 @@ class StringHelper
     {
         return implode(' ', [
             $course->year,
+            $course->course_year . '°',
             $course->comission,
             $course->turn,
             $course->campus

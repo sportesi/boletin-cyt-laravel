@@ -13,7 +13,9 @@
                             <th>Curso</th>
                             <th>Turno</th>
                             <th>Comisión</th>
+                            <th>Cuatrimestre</th>
                             <th>Sede</th>
+                            <th>Cursada</th>
                             <th>Año</th>
                             <th>Alumnos</th>
                             <th>Acciones</th>
@@ -27,7 +29,9 @@
                                 </td>
                                 <td>{{ $course->turn }}</td>
                                 <td>{{ $course->comission }}</td>
+                                <td>{{ $course->semester }}</td>
                                 <td>{{ $course->campus }}</td>
+                                <td>{{ $course->course_year }}°</td>
                                 <td>{{ $course->year }}</td>
                                 <td>{{ $course->count }}</td>
                                 <td>
