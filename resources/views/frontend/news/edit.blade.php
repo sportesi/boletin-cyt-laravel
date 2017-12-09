@@ -38,6 +38,7 @@
                     <div class="col-sm-10">
                         <input type="text" class="form-control" id="title" value="{{ utf8_decode($news->title) }}"
                                name="title" maxlength="255" required>
+                        <span class="title-counter pull-right">Caracteres restantes: <b>255</b></span>
                     </div>
                 </div>
                 <div class="form-group">
@@ -45,6 +46,7 @@
                     <div class="col-sm-10">
                         <input type="text" class="form-control" id="sub_title" value="{{ utf8_decode($news->sub_title) }}"
                                name="sub_title" maxlength="255">
+                        <span class="sub_title-counter pull-right">Caracteres restantes: <b>255</b></span>
                     </div>
                 </div>
                 <div class="form-group">
@@ -52,6 +54,7 @@
                     <div class="col-sm-10">
                         <textarea name="summary" id="summary" class="form-control" cols="30" rows="10"
                                   maxlength="250" required>{{ utf8_decode($news->summary) }}</textarea>
+                        <span class="summary-counter pull-right">Caracteres restantes: <b>250</b></span>
                     </div>
                 </div>
                 <div class="form-group">
@@ -59,6 +62,7 @@
                     <div class="col-sm-10">
                         <textarea name="sub_summary" id="sub_summary" class="form-control" cols="30" rows="5"
                                   maxlength="250">{{ utf8_decode($news->sub_summary) }}</textarea>
+                        <span class="sub_summary-counter pull-right">Caracteres restantes: <b>250</b></span>
                     </div>
                 </div>
                 <div class="form-group">
@@ -100,4 +104,23 @@
         </div>
     </div>
 
+@endsection
+
+@section('scripts')
+    <script type="text/javascript">
+        function setCharCounter(input) {
+            $('#' + input).on('keyup', function () {
+                let max = $(this).attr('maxlength');
+                let current = $(this).val().length;
+                let left = parseInt(max) - parseInt(current);
+
+                $('.' + input + '-counter b').text(left);
+            });
+        }
+
+        setCharCounter('summary');
+        setCharCounter('sub_summary');
+        setCharCounter('sub_title');
+        setCharCounter('title');
+    </script>
 @endsection
