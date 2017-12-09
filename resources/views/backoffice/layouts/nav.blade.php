@@ -14,8 +14,7 @@
         <!-- Sidebar Menu -->
         <ul class="sidebar-menu">
             <li class="header">MENÚ PRINCIPAL</li>
-            <li><a href="{{ route('home') }}"><i class="fa fa-home"></i> <span>Página Principal</span></a></li>
-            <li class="active">
+            <li>
                 <a href="{{ route('bo.dash') }}">
                     <i class="fa fa-dashboard"></i> <span>Panel de Control</span>
                 </a>
@@ -24,6 +23,7 @@
             <li><a href="{{ route('backoffice.user.index') }}"><i class="fa fa-users"></i> <span>Usuarios</span></a></li>
             <li><a href="{{ route('backoffice.category.index') }}"><i class="fa fa-list"></i> <span>Categorías</span></a></li>
             <li><a href=""><i class="fa fa-book"></i> <span>Noticias</span></a></li>
+            <li><a href="{{ route('home') }}"><i class="fa fa-external-link"></i> <span>Ir al Sitio</span></a></li>
         </ul>
     </section>
 </aside>

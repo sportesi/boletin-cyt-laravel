@@ -7,14 +7,16 @@
             <!-- small box -->
             <div class="small-box bg-aqua">
                 <div class="inner">
-                    <h3>150</h3>
+                    <h3>{{ $newsCount }}</h3>
 
                     <p>Noticias</p>
                 </div>
                 <div class="icon">
                     <i class="ion ion-pricetag"></i>
                 </div>
-                <a href="#" class="small-box-footer">Más info <i class="fa fa-arrow-circle-right"></i></a>
+                <a href="{{ route('home') }}" class="small-box-footer" target="_blank">
+                    Ver más <i class="fa fa-arrow-circle-right"></i>
+                </a>
             </div>
         </div>
         <!-- ./col -->
@@ -22,14 +24,16 @@
             <!-- small box -->
             <div class="small-box bg-green">
                 <div class="inner">
-                    <h3>53<sup style="font-size: 20px">%</sup></h3>
+                    <h3>{{ $validatedUsers }}</h3>
 
                     <p>Usuarios Validados</p>
                 </div>
                 <div class="icon">
                     <i class="ion ion-ios-people"></i>
                 </div>
-                <a href="#" class="small-box-footer">Más info <i class="fa fa-arrow-circle-right"></i></a>
+                <a href="{{ route('backoffice.user.index') }}" class="small-box-footer">
+                    Ver más <i class="fa fa-arrow-circle-right"></i>
+                </a>
             </div>
         </div>
         <!-- ./col -->
@@ -37,14 +41,16 @@
             <!-- small box -->
             <div class="small-box bg-yellow">
                 <div class="inner">
-                    <h3>44</h3>
+                    <h3>{{ $nonValidatedUsers }}</h3>
 
                     <p>Usuarios a Validar</p>
                 </div>
                 <div class="icon">
                     <i class="ion ion-person-add"></i>
                 </div>
-                <a href="#" class="small-box-footer">Más info <i class="fa fa-arrow-circle-right"></i></a>
+                <a href="{{ route('backoffice.user.index') }}" class="small-box-footer">
+                    Ver más <i class="fa fa-arrow-circle-right"></i>
+                </a>
             </div>
         </div>
         <!-- ./col -->
@@ -52,14 +58,16 @@
             <!-- small box -->
             <div class="small-box bg-red">
                 <div class="inner">
-                    <h3>65</h3>
+                    <h3>{{ $categories }}</h3>
 
-                    <p>Reportes</p>
+                    <p>Categorías</p>
                 </div>
                 <div class="icon">
                     <i class="ion ion-pie-graph"></i>
                 </div>
-                <a href="#" class="small-box-footer">Más info <i class="fa fa-arrow-circle-right"></i></a>
+                <a href="{{ route('backoffice.category.index') }}" class="small-box-footer">
+                    Ver más <i class="fa fa-arrow-circle-right"></i>
+                </a>
             </div>
         </div>
         <!-- ./col -->
@@ -76,108 +84,25 @@
 
                     <h3 class="box-title">Últimas Noticias</h3>
 
-                    <div class="box-tools pull-right">
-                        <ul class="pagination pagination-sm inline">
-                            <li><a href="#">&laquo;</a></li>
-                            <li><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">&raquo;</a></li>
-                        </ul>
-                    </div>
+                    <div class="box-tools pull-right"></div>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
                     <ul class="todo-list">
-                        <li>
-                            <!-- drag handle -->
-                            <span class="handle">
-                                            <i class="fa fa-ellipsis-v"></i>
-                                            <i class="fa fa-ellipsis-v"></i>
-                                          </span>
-                            <!-- checkbox -->
-                            <input type="checkbox" value="">
-                            <!-- todo text -->
-                            <span class="text">Design a nice theme</span>
-                            <!-- Emphasis label -->
-                            <small class="label label-danger"><i class="fa fa-clock-o"></i> 2 mins</small>
-                            <!-- General tools such as edit or delete-->
-                            <div class="tools">
-                                <i class="fa fa-edit"></i>
-                                <i class="fa fa-trash-o"></i>
-                            </div>
-                        </li>
-                        <li>
-                      <span class="handle">
-                        <i class="fa fa-ellipsis-v"></i>
-                        <i class="fa fa-ellipsis-v"></i>
-                      </span>
-                            <input type="checkbox" value="">
-                            <span class="text">Make the theme responsive</span>
-                            <small class="label label-info"><i class="fa fa-clock-o"></i> 4 hours</small>
-                            <div class="tools">
-                                <i class="fa fa-edit"></i>
-                                <i class="fa fa-trash-o"></i>
-                            </div>
-                        </li>
-                        <li>
-                      <span class="handle">
-                        <i class="fa fa-ellipsis-v"></i>
-                        <i class="fa fa-ellipsis-v"></i>
-                      </span>
-                            <input type="checkbox" value="">
-                            <span class="text">Let theme shine like a star</span>
-                            <small class="label label-warning"><i class="fa fa-clock-o"></i> 1 day</small>
-                            <div class="tools">
-                                <i class="fa fa-edit"></i>
-                                <i class="fa fa-trash-o"></i>
-                            </div>
-                        </li>
-                        <li>
-                      <span class="handle">
-                        <i class="fa fa-ellipsis-v"></i>
-                        <i class="fa fa-ellipsis-v"></i>
-                      </span>
-                            <input type="checkbox" value="">
-                            <span class="text">Let theme shine like a star</span>
-                            <small class="label label-success"><i class="fa fa-clock-o"></i> 3 days</small>
-                            <div class="tools">
-                                <i class="fa fa-edit"></i>
-                                <i class="fa fa-trash-o"></i>
-                            </div>
-                        </li>
-                        <li>
-                      <span class="handle">
-                        <i class="fa fa-ellipsis-v"></i>
-                        <i class="fa fa-ellipsis-v"></i>
-                      </span>
-                            <input type="checkbox" value="">
-                            <span class="text">Check your messages and notifications</span>
-                            <small class="label label-primary"><i class="fa fa-clock-o"></i> 1 week</small>
-                            <div class="tools">
-                                <i class="fa fa-edit"></i>
-                                <i class="fa fa-trash-o"></i>
-                            </div>
-                        </li>
-                        <li>
-                      <span class="handle">
-                        <i class="fa fa-ellipsis-v"></i>
-                        <i class="fa fa-ellipsis-v"></i>
-                      </span>
-                            <input type="checkbox" value="">
-                            <span class="text">Let theme shine like a star</span>
-                            <small class="label label-default"><i class="fa fa-clock-o"></i> 1 month</small>
-                            <div class="tools">
-                                <i class="fa fa-edit"></i>
-                                <i class="fa fa-trash-o"></i>
-                            </div>
-                        </li>
+                        @foreach($recentNews as $new)
+                            <li>
+                                <span class="text">{{ utf8_decode($new->title) }}</span>
+                                <small class="text text-info"><i
+                                            class="fa fa-clock-o"></i> {{ $new->created_at->diffForHumans() }}</small>
+                            </li>
+                        @endforeach
                     </ul>
                 </div>
                 <!-- /.box-body -->
                 <div class="box-footer clearfix no-border">
-                    <button type="button" class="btn btn-default pull-right"><i class="fa fa-plus"></i> Add item
-                    </button>
+                    <a href="{{ route('home') }}" target="_blank" class="btn btn-default pull-right">
+                        <i class="fa fa-external-link"></i> Ver más
+                    </a>
                 </div>
             </div>
             <!-- /.box -->
@@ -193,108 +118,29 @@
 
                     <h3 class="box-title">Últimas Registraciones</h3>
 
-                    <div class="box-tools pull-right">
-                        <ul class="pagination pagination-sm inline">
-                            <li><a href="#">&laquo;</a></li>
-                            <li><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">&raquo;</a></li>
-                        </ul>
-                    </div>
+                    <div class="box-tools pull-right"></div>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
                     <ul class="todo-list">
-                        <li>
-                            <!-- drag handle -->
-                            <span class="handle">
-                        <i class="fa fa-ellipsis-v"></i>
-                        <i class="fa fa-ellipsis-v"></i>
-                      </span>
-                            <!-- checkbox -->
-                            <input type="checkbox" value="">
-                            <!-- todo text -->
-                            <span class="text">Design a nice theme</span>
-                            <!-- Emphasis label -->
-                            <small class="label label-danger"><i class="fa fa-clock-o"></i> 2 mins</small>
-                            <!-- General tools such as edit or delete-->
-                            <div class="tools">
-                                <i class="fa fa-edit"></i>
-                                <i class="fa fa-trash-o"></i>
-                            </div>
-                        </li>
-                        <li>
-                      <span class="handle">
-                        <i class="fa fa-ellipsis-v"></i>
-                        <i class="fa fa-ellipsis-v"></i>
-                      </span>
-                            <input type="checkbox" value="">
-                            <span class="text">Make the theme responsive</span>
-                            <small class="label label-info"><i class="fa fa-clock-o"></i> 4 hours</small>
-                            <div class="tools">
-                                <i class="fa fa-edit"></i>
-                                <i class="fa fa-trash-o"></i>
-                            </div>
-                        </li>
-                        <li>
-                      <span class="handle">
-                        <i class="fa fa-ellipsis-v"></i>
-                        <i class="fa fa-ellipsis-v"></i>
-                      </span>
-                            <input type="checkbox" value="">
-                            <span class="text">Let theme shine like a star</span>
-                            <small class="label label-warning"><i class="fa fa-clock-o"></i> 1 day</small>
-                            <div class="tools">
-                                <i class="fa fa-edit"></i>
-                                <i class="fa fa-trash-o"></i>
-                            </div>
-                        </li>
-                        <li>
-                      <span class="handle">
-                        <i class="fa fa-ellipsis-v"></i>
-                        <i class="fa fa-ellipsis-v"></i>
-                      </span>
-                            <input type="checkbox" value="">
-                            <span class="text">Let theme shine like a star</span>
-                            <small class="label label-success"><i class="fa fa-clock-o"></i> 3 days</small>
-                            <div class="tools">
-                                <i class="fa fa-edit"></i>
-                                <i class="fa fa-trash-o"></i>
-                            </div>
-                        </li>
-                        <li>
-                      <span class="handle">
-                        <i class="fa fa-ellipsis-v"></i>
-                        <i class="fa fa-ellipsis-v"></i>
-                      </span>
-                            <input type="checkbox" value="">
-                            <span class="text">Check your messages and notifications</span>
-                            <small class="label label-primary"><i class="fa fa-clock-o"></i> 1 week</small>
-                            <div class="tools">
-                                <i class="fa fa-edit"></i>
-                                <i class="fa fa-trash-o"></i>
-                            </div>
-                        </li>
-                        <li>
-                      <span class="handle">
-                        <i class="fa fa-ellipsis-v"></i>
-                        <i class="fa fa-ellipsis-v"></i>
-                      </span>
-                            <input type="checkbox" value="">
-                            <span class="text">Let theme shine like a star</span>
-                            <small class="label label-default"><i class="fa fa-clock-o"></i> 1 month</small>
-                            <div class="tools">
-                                <i class="fa fa-edit"></i>
-                                <i class="fa fa-trash-o"></i>
-                            </div>
-                        </li>
+                        @foreach($recentUsers as $user)
+                            <li>
+                                <span class="text">{{ $user->name }}</span>
+                                <small class="text">
+                                    <i>({{ $user->getComission() . ' ' . $user->turn->name }})</i>
+                                </small>
+                                <small class="text text-info">
+                                    <i class="fa fa-clock-o"></i> {{ $user->created_at->diffForHumans() }}
+                                </small>
+                            </li>
+                        @endforeach
                     </ul>
                 </div>
                 <!-- /.box-body -->
                 <div class="box-footer clearfix no-border">
-                    <button type="button" class="btn btn-default pull-right"><i class="fa fa-plus"></i> Add item
-                    </button>
+                    <a href="{{ route('backoffice.user.index') }}" class="btn btn-default pull-right">
+                        <i class="fa fa-external-link"></i> Ver más
+                    </a>
                 </div>
             </div>
             <!-- /.box -->

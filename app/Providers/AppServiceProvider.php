@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Category;
+use Carbon\Carbon;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -14,6 +15,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        Carbon::setLocale('es');
+
         view()->composer('frontend.layouts.sidebar', function ($view) {
             $view->with('categories', Category::active());
         });
