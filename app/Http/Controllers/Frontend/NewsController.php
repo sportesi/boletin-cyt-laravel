@@ -58,10 +58,10 @@ class NewsController extends Controller
         News::create([
             "user_id"     => Auth::user()->id,
             "category_id" => $request->get("category_id"),
-            "title"       => $request->get("title"),
-            "sub_title"   => $request->get("sub_title"),
-            "summary"     => $request->get("summary"),
-            "sub_summary" => $request->get("sub_summary"),
+            "title"       => utf8_encode($request->get("title")),
+            "sub_title"   => utf8_encode($request->get("sub_title")),
+            "summary"     => utf8_encode($request->get("summary")),
+            "sub_summary" => utf8_encode($request->get("sub_summary")),
             "image_url"   => $request->get("image_url"),
             "link_1"      => $request->get("link_1"),
             "link_2"      => $request->get("link_2"),
@@ -101,10 +101,10 @@ class NewsController extends Controller
     public function update(Request $request, News $news)
     {
         $news->category_id = $request->get("category_id");
-        $news->title       = $request->get("title");
-        $news->sub_title   = $request->get("sub_title");
-        $news->summary     = $request->get("summary");
-        $news->sub_summary = $request->get("sub_summary");
+        $news->title       = utf8_encode($request->get("title"));
+        $news->sub_title   = utf8_encode($request->get("sub_title"));
+        $news->summary     = utf8_encode($request->get("summary"));
+        $news->sub_summary = utf8_encode($request->get("sub_summary"));
         $news->image_url   = $request->get("image_url");
         $news->link_1      = $request->get("link_1");
         $news->link_2      = $request->get("link_2");

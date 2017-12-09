@@ -36,14 +36,14 @@
                 <div class="form-group">
                     <label for="title" class="col-sm-2 control-label">Título *</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="title" value="{{ $news->title }}"
+                        <input type="text" class="form-control" id="title" value="{{ utf8_decode($news->title) }}"
                                name="title" maxlength="255" required>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="sub_title" class="col-sm-2 control-label">Sub Título</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="sub_title" value="{{ $news->sub_title }}"
+                        <input type="text" class="form-control" id="sub_title" value="{{ utf8_decode($news->sub_title) }}"
                                name="sub_title" maxlength="255">
                     </div>
                 </div>
@@ -51,14 +51,14 @@
                     <label for="summary" class="col-sm-2 control-label">Resumen *</label>
                     <div class="col-sm-10">
                         <textarea name="summary" id="summary" class="form-control" cols="30" rows="10"
-                                  maxlength="250" required>{{ $news->summary }}</textarea>
+                                  maxlength="250" required>{{ utf8_decode($news->summary) }}</textarea>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="sub_summary" class="col-sm-2 control-label">Sub Resumen</label>
                     <div class="col-sm-10">
                         <textarea name="sub_summary" id="sub_summary" class="form-control" cols="30" rows="5"
-                                  maxlength="250">{{ $news->sub_summary }}</textarea>
+                                  maxlength="250">{{ utf8_decode($news->sub_summary) }}</textarea>
                     </div>
                 </div>
                 <div class="form-group">
