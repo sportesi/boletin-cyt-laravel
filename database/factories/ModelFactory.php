@@ -23,8 +23,9 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
         'turn_id' => 1,
         'campus_id' => 1,
-        'year' => $faker->numberBetween(2015, 2017),
+        'year' => $faker->numberBetween(1, 5),
         'comission' => $faker->randomElement($comission),
+        'semester' => $faker->numberBetween(1, 2),
         'validated' => false,
     ];
 });

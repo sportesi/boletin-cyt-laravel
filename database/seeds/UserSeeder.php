@@ -32,8 +32,9 @@ class UserSeeder extends Seeder
             'remember_token' => str_random(10),
             'turn_id' => 1,
             'campus_id' => 1,
-            'year' => 2017,
+            'year' => 3,
             'comission' => 'A',
+            'semester' => 2,
             'validated' => true,
         ]);
         $user->save();
