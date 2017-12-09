@@ -24,6 +24,8 @@ class User extends Authenticatable
         'turn_id',
         'campus_id',
         'year',
+        'course_year',
+        'semester',
         'comission',
         'validated'
     ];
@@ -61,5 +63,14 @@ class User extends Authenticatable
     public function getRoleName()
     {
         return $this->roles()->count() ? $this->roles()->first()->display_name : '';
+    }
+
+    public function getComission()
+    {
+        return implode(' ', [
+            $this->course_year . '°',
+            $this->comission,
+            $this->year
+        ]);
     }
 }

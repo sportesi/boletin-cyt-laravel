@@ -24,7 +24,7 @@
                                 <th>Email</th>
                                 <th>Turno</th>
                                 <th>Comisión</th>
-                                <th>Año</th>
+                                <th>Cuatrimestre</th>
                                 <th>Sede</th>
                                 <th>Rol</th>
                                 <th>Estado</th>
@@ -50,12 +50,12 @@
                                     </td>
                                     <td>
                                         <a href="{{ route('backoffice.user.edit', ['id'=> $user->id]) }}">
-                                            {{ $user->comission }}
+                                            {{ $user->getComission() }}
                                         </a>
                                     </td>
                                     <td>
                                         <a href="{{ route('backoffice.user.edit', ['id'=> $user->id]) }}">
-                                            {{ $user->year }}
+                                            {{ $user->semester }}
                                         </a>
                                     </td>
                                     <td>

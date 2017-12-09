@@ -67,6 +67,8 @@ class UserController extends Controller
                 'campus_id' => $request->get('campus'),
                 'comission' => $request->get('comission'),
                 'year' => $request->get('year'),
+                'course_year' => $request->get('course_year'),
+                'semester' => $request->get('semester'),
                 'password' => bcrypt($generator->password()),
                 'validated' => true,
             ]);
@@ -112,6 +114,8 @@ class UserController extends Controller
             $user->campus_id = $request->get('campus');
             $user->comission = $request->get('comission');
             $user->year = $request->get('year');
+            $user->course_year = $request->get('course_year');
+            $user->semester = $request->get('semester');
             $user->validated = $request->get('validated') === 'on';
             $user->detachRoles();
             $user->attachRole(Role::find($request->get('role')));

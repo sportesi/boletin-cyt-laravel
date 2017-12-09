@@ -75,6 +75,18 @@
                 </div>
 
                 <div class="form-group">
+                    <label for="course_year" class="col-md-4 control-label">Año (Cursada)</label>
+                    <div class="col-md-6">
+                        <select name="course_year" id="course_year" class="form-control" required>
+                            <option value="">Seleccione...</option>
+                            @for($i = 1; $i <= 5; $i++)
+                                <option value="{{ $i }}">{{ $i }}</option>
+                            @endfor
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
                     <label for="comission" class="col-md-4 control-label">Comisión</label>
                     <div class="col-md-6">
                         <select name="comission" id="comission" class="form-control" required>
@@ -89,11 +101,25 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="year" class="col-md-4 control-label">Año</label>
+                    <label for="semester" class="col-md-4 control-label">Cuatrimestre</label>
+                    <div class="col-md-6">
+                        <select name="semester" id="semester" class="form-control" required>
+                            <option value="">Seleccione...</option>
+                            @foreach(['1', '2'] as $a)
+                                <option value="{{ $a }}">
+                                    {{ $a }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="year" class="col-md-4 control-label">Año (Calendario)</label>
                     <div class="col-md-6">
                         <select name="year" id="year" class="form-control" required>
                             <option value="">Seleccione...</option>
-                            @for($i = 2010; $i <= 2025; $i++)
+                            @for($i = 2000; $i <= 2025; $i++)
                                 <option value="{{ $i }}">{{ $i }}</option>
                             @endfor
                         </select>

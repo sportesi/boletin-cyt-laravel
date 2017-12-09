@@ -75,6 +75,8 @@ class RegisterController extends Controller
             'campus_id' => $data['campus'],
             'comission' => $data['comission'],
             'year' => $data['year'],
+            'course_year' => $data['course_year'],
+            'semester' => $data['semester'],
             'validated' => false
         ]);
     }
