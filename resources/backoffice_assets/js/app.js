@@ -12,4 +12,11 @@ $(document).ready(() => {
     $('.datatable-js').dataTable({
         language: DataTableSpanish
     });
+
+    $('.sidebar a').each((a, b) => {
+        let item = $(b);
+        if (item.attr('href') === window.location.href) {
+            item.parent().toggleClass('active');
+        }
+    });
 });
