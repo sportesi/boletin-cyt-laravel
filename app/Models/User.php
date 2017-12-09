@@ -62,7 +62,7 @@ class User extends Authenticatable
 
     public function getRoleName()
     {
-        return $this->roles()->count() ? $this->roles()->first()->display_name : '';
+        return $this->roles()->count() ? $this->roles()->first()->display_name : 'Alumno';
     }
 
     public function getComission()
