@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\News;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -16,7 +17,10 @@ class ProfileController extends Controller
      */
     public function show($id)
     {
-        return view('frontend.profile.show', ['user' => User::find($id)]);
+        return view('frontend.profile.show', [
+            'user' => User::find($id),
+            'news' => News::where(['user_id' => $id])->paginate(5),
+        ]);
     }
 
     /**

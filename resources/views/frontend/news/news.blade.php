@@ -64,7 +64,7 @@
                 <div class="col-md-5">
                     @if($new->user)
                         <strong>Autor:&nbsp;</strong>
-                        <a href="#{{--/user/statistics/index.php?id=1--}}">
+                        <a href="{{ route('profile.show', ['profile' => $new->user->id]) }}">
                             {{ utf8_decode($new->getAuthor()) }}
                         </a>
                     @endif
