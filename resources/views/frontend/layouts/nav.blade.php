@@ -40,7 +40,6 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a href="{{ route('news.index') }}">Mis Noticias</a></li>
-                                <li><a href="#">Rendimiento</a></li>
                                 <li><a href="#">Configuración</a></li>
                                 <li role="separator" class="divider"></li>
                                 <li><a href="#" onclick="logout();">Cerrar sesión</a></li>

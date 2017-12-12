@@ -55,6 +55,11 @@ class User extends Authenticatable
         return $this->hasMany(News::class);
     }
 
+    public function profile()
+    {
+        return $this->hasOne(Profile::class);
+    }
+
     public function sendPasswordResetNotification($token)
     {
         $this->notify(new ResetPasswordNotification($token));
