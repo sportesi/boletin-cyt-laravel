@@ -78,10 +78,27 @@
                                                 <div class="col-md-10">
                                                     <div class="panel panel-info">
                                                         <div class="panel-heading">
-                                                            {{ str_limit($new->title, 50) }}
+                                                            {{ str_limit(utf8_decode($new->title), 50) }}
                                                         </div>
                                                         <div class="panel-body">
-                                                            {{ str_limit($new->summary, 50) }}
+                                                            <p>
+                                                                {{ str_limit(utf8_decode($new->summary), 50) }}
+                                                            </p>
+
+                                                            <div class="text-center">
+                                                                @if($new->link_1)
+                                                                    <a href="{!! $new->link_1 !!}" class="btn btn-info btn-xs" target="_blank">Nota
+                                                                        Completa</a>
+                                                                @endif
+                                                                @if($new->link_2)
+                                                                    <a href="{!! $new->link_2 !!}" class="btn btn-info btn-xs"
+                                                                       target="_blank">Relacionado</a>
+                                                                @endif
+                                                                @if($new->link_3)
+                                                                    <a href="{!! $new->link_3 !!}" class="btn btn-info btn-xs" target="_blank">Formato
+                                                                        PDF</a>
+                                                                @endif
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
