@@ -43,22 +43,8 @@
                         <td class="text-center">
                             <div class="btn-group">
                                 <a href="{{ route('backoffice.news.edit', ['id' => $new->id]) }}" class="btn btn-primary btn-xs">
-                                    <i class="fa fa-pencil"></i>
+                                    <i class="fa fa-pencil"></i> Editar
                                 </a>
-                                <a href="" class="btn btn-primary btn-xs"><i class="fa fa-trash"></i></a>
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-primary btn-xs dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                        <span class="fa fa-bars"></span>
-                                        <span class="sr-only">Toggle Dropdown</span>
-                                    </button>
-                                    <ul class="dropdown-menu dropdown-menu-right" role="menu">
-                                        <li><a href="#">Action</a></li>
-                                        <li><a href="#">Another action</a></li>
-                                        <li><a href="#">Something else here</a></li>
-                                        <li class="divider"></li>
-                                        <li><a href="#">Separated link</a></li>
-                                    </ul>
-                                </div>
                             </div>
                         </td>
                     </tr>
