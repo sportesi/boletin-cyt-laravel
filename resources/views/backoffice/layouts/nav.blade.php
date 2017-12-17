@@ -22,7 +22,7 @@
             <li><a href="{{ route('backoffice.course.index') }}"><i class="fa fa-edit"></i> <span>Cursos</span></a></li>
             <li><a href="{{ route('backoffice.user.index') }}"><i class="fa fa-users"></i> <span>Usuarios</span></a></li>
             <li><a href="{{ route('backoffice.category.index') }}"><i class="fa fa-list"></i> <span>Categorías</span></a></li>
-            <li><a href=""><i class="fa fa-book"></i> <span>Noticias</span></a></li>
+            <li><a href="{{ route('backoffice.news.index') }}"><i class="fa fa-book"></i> <span>Noticias</span></a></li>
             <li><a href="{{ route('home') }}"><i class="fa fa-external-link"></i> <span>Ir al Sitio</span></a></li>
         </ul>
     </section>

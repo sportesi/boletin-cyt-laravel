@@ -38,4 +38,5 @@ Route::group(['prefix' => '/backoffice', 'middleware' => ['role:admin']], functi
         'as' => 'backoffice',
         'only' => ['index']
     ]);
+    Route::resource('news', 'Backoffice\\NewsController', ['as' => 'backoffice']);
 });
