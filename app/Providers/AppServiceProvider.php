@@ -15,6 +15,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        Schema::defaultStringLength(191);
+
         Carbon::setLocale('es');
 
         view()->composer('frontend.layouts.sidebar', function ($view) {
