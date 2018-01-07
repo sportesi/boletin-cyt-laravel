@@ -29,9 +29,11 @@
                         <td>{{ $new->category ? $new->category->name : '' }}</td>
                         <td>{{ str_limit($new->title, 75) }}</td>
                         <td>
-                            <a href="{{ route('backoffice.user.edit', ['id' => $new->user->id]) }}">
-                                {{ utf8_decode($new->getAuthor()) }}
-                            </a>
+                            @if ($new->user)
+                                <a href="{{ route('backoffice.user.edit', ['id' => $new->user->id]) }}">
+                                    {{ utf8_decode($new->getAuthor()) }}
+                                </a>
+                            @endif
                         </td>
                         <td class="text-center">
                             <div class="btn-group">
