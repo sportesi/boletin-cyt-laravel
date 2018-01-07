@@ -14,7 +14,7 @@
                 <div class="icon">
                     <i class="ion ion-pricetag"></i>
                 </div>
-                <a href="{{ route('home') }}" class="small-box-footer" target="_blank">
+                <a href="{{ route('backoffice.news.index') }}" class="small-box-footer">
                     Ver más <i class="fa fa-arrow-circle-right"></i>
                 </a>
             </div>
