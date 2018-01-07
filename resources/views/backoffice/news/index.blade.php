@@ -26,7 +26,7 @@
                 @foreach($news as $new)
                     <tr>
                         <td class="text-center"><img src="{{ $new->image_url }}" alt="Imagen" style="width: 25px;"></td>
-                        <td>{{ $new->category->name }}</td>
+                        <td>{{ $new->category ? $new->category->name : '' }}</td>
                         <td>{{ str_limit($new->title, 75) }}</td>
                         <td>
                             <a href="{{ route('backoffice.user.edit', ['id' => $new->user->id]) }}">
