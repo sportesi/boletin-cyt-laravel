@@ -30,7 +30,7 @@ Route::resource('profile', 'Frontend\\ProfileController', [
 
 /* BackofficeRoutes */
 
-Route::group(['prefix' => '/backoffice', 'middleware' => ['role:admin']], function () {
+Route::group(['prefix' => '/backoffice', 'middleware' => ['auth', 'role:admin']], function () {
     Route::get('/dashboard', 'Backoffice\\DashboardController@index')->name('bo.dash');
     Route::resource('user', 'Backoffice\\UserController', ['as' => 'backoffice']);
     Route::resource('category', 'Backoffice\\CategoryController', ['as' => 'backoffice']);
