@@ -27,6 +27,8 @@ class UserController extends Controller
                 'campus_id' => $request->get('course')['campus_id'],
                 'comission' => $request->get('course')['comission'],
                 'year' => $request->get('course')['year'],
+                'semester' => $request->get('course')['semester'],
+                'course_year' => $request->get('course')['course_year'],
             ])->get();
         } else {
             $users = User::orderBy('id', 'desc')->get();
