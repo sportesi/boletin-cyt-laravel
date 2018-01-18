@@ -1,6 +1,6 @@
 @foreach($news as $new)
     <div class="panel panel-info">
-        @if(Auth::check() && $new->user->id === Auth::user()->id)
+        @if(Auth::check() && $new->user && $new->user->id === Auth::user()->id)
             <div class="panel-heading">
                 <div class="row">
                     <div class="col-md-3 pull-right text-right">
