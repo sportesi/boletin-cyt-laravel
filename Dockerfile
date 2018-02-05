@@ -42,7 +42,7 @@ RUN php composer.phar install
 RUN chown -R www-data:www-data storage bootstrap/cache
 
 # Copy env-example
-COPY ./.env-example /var/www/html/.env
+COPY ./.env.example /var/www/html/.env
 
 # Run Laravel Mix
 RUN npm run prod
