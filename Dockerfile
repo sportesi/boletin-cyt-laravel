@@ -46,3 +46,10 @@ COPY ./.env.example /var/www/html/.env
 
 # Run Laravel Mix
 RUN npm run prod
+
+# Create Dev - QA Database
+RUN touch /var/www/html/database/database.sqlite
+RUN chown www-data:www-data /var/www/html/database/database.sqlite
+
+# Run migrations
+RUN php artisan migrate --seed
