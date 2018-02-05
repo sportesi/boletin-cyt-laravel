@@ -33,7 +33,7 @@ RUN curl -sL https://deb.nodesource.com/setup_9.x | bash -
 RUN apt-get install -y nodejs
 
 # Install node_modules
-RUN npm install
+RUN npm install --silent
 
 # Install composer vendor
 RUN php composer.phar install
@@ -45,7 +45,7 @@ RUN chown -R www-data:www-data storage bootstrap/cache
 COPY ./.env.example /var/www/html/.env
 
 # Run Laravel Mix
-RUN npm run prod
+RUN npm run prod --silent
 
 # Create Dev - QA Database
 RUN touch /var/www/html/database/database.sqlite
