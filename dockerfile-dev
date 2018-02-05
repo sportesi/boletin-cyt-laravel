@@ -1,0 +1,13 @@
+FROM php:7.2.1-apache-stretch
+
+# Set working dir
+WORKDIR /var/www/html
+
+# Copy source code into image
+COPY . /var/www/html
+
+# Copy apache default conf to point to public dir in project
+COPY ./docker/site.conf /etc/apache2/sites-available/000-default.conf
+
+# Set the right permissions to storage and cache dirs
+RUN chown -R www-data:www-data storage bootstrap/cache
