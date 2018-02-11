@@ -10,12 +10,14 @@ class HomeController extends Controller
     /** @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View */
     public function index()
     {
-        $news = News::orderBy('created_at', 'desc')->paginate(3);
-        $slider = News::orderBy('created_at', 'desc')->take(5)->get();
+        $latest = News::orderBy('created_at', 'desc')->take(1)->get()->first();
+        $news   = News::where('id', '!=', $latest->id)
+            ->orderBy('created_at', 'desc')
+            ->paginate(10);
 
         return view('frontend.home.index', [
-            'news' => $news,
-            'slider' => $slider
+            'news'   => $news,
+            'latest' => $latest
         ]);
     }
 }

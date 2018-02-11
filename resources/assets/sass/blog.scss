@@ -10,6 +10,10 @@
   font-size: 2.25rem;
 }
 
+.blog-header-image {
+  width: 100%;
+}
+
 .blog-header-logo:hover {
   text-decoration: none;
 }
@@ -147,4 +151,23 @@ h1, h2, h3, h4, h5, h6 {
 
 .blog-footer p:last-child {
   margin-bottom: 0;
+}
+
+/** Jumbotron **/
+
+.jumbo-caption {
+
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 5px;
+
+  .jumbo-text {
+    padding: 0 15px;
+  }
+
+}
+
+/** Card Images **/
+
+.card-img-right {
+  width: 35%;
 }
