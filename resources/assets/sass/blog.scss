@@ -155,10 +155,16 @@ h1, h2, h3, h4, h5, h6 {
 
 /** Jumbotron **/
 
+.jumbotron {
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
 .jumbo-caption {
 
   background-color: rgba(0, 0, 0, 0.6);
   border-radius: 5px;
+  padding-bottom: 15px;
 
   .jumbo-text {
     padding: 0 15px;

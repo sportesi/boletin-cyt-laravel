@@ -1,58 +1,49 @@
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/">Boletín Científico - Tecnológico</a>
+<header class="blog-header py-3">
+    <div class="row flex-nowrap justify-content-between align-items-center">
+        <div class="col-2 pt-1">
+            <img src="{{ asset('images/uai-vertical.png') }}" alt="UAI Universidad Abierta Interamericana"
+                 class="blog-header-image">
         </div>
+        <div class="col-6 text-center">
+            <a class="blog-header-logo text-dark" href="/">{{ config('app.name') }}</a>
+        </div>
+        <div class="col-2 text-right">
+            @if(\Illuminate\Support\Facades\Auth::check())
+                <div class="dropdown">
+                    <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button"
+                            id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                        {{ \Illuminate\Support\Facades\Auth::user()->name }}
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="{{ route('news.index') }}">Mis Noticias</a>
+                        <a class="dropdown-item" href="#">
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                                {{ csrf_field() }}
+                                <button type="submit" class="btn btn-sm btn-outline-secondary">Cerrar sesión
+                                </button>
+                            </form>
+                        </a>
+                    </div>
+                </div>
+            @else
+                <div class="dropdown dropleft">
+                    <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button"
+                            id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                        Iniciar Sesión
+                    </button>
+                    @include('auth.login')
+                </div>
+            @endif
+        </div>
+    </div>
+</header>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-                <li><a href="/">Últimas Noticias</a></li>
-            </ul>
-            <div class="navbar-right">
-                @if(\Illuminate\Support\Facades\Auth::check())
-                    <ul class="nav navbar-nav navbar-right">
-                        @if(\Illuminate\Support\Facades\Auth::check())
-                            <li>
-                                <a href="{{ route('news.create') }}">
-                                    <span class="btn btn-primary btn-xs">
-                                        <i class="fa fa-plus"></i>
-                                        Crear Noticia
-                                    </span>
-                                </a>
-                            </li>
-                            @if(\Illuminate\Support\Facades\Auth::user()->hasRole('admin'))
-                                <li><a href="{{ route('bo.dash') }}">Panel de Control</a></li>
-                            @endif
-                        @endif
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                               aria-haspopup="true" aria-expanded="false">
-                                <b>{{ Auth::user()->name }}</b> <span class="caret"></span>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a href="{{ route('news.index') }}">Mis Noticias</a></li>
-                                <li><a href="#">Configuración</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li><a href="#" onclick="logout();">Cerrar sesión</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                @else
-                    <a href="{{ route('register') }}" class="btn btn-success btn-sm navbar-btn">Registrarse</a>
-                    <a href="{{ route('login') }}" class="btn btn-primary btn-sm navbar-btn">Ingresar</a>
-                @endif
-            </div>
-        </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-</nav>
-<form id="logout-form" action="{{ route('logout') }}" method="POST" class="hide">{{ csrf_field() }}</form>
-<script>function logout(){event.preventDefault();document.getElementById('logout-form').submit();}</script>
+<div class="nav-scroller py-1 mb-2">
+    <nav class="nav d-flex justify-content-between">
+        @foreach ($categories as $category)
+            <a class="p-2 text-muted" href="{{ route('category', [$category->id]) }}">{{ $category->name }}</a>
+        @endforeach
+    </nav>
+</div>
