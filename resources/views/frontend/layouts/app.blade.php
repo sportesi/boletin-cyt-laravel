@@ -14,61 +14,31 @@
     <link href="{{ asset('css/app.min.css') }}" rel="stylesheet">
 </head>
 <body>
-
 <div class="container">
-    <div class="row">
+    @include('frontend.layouts.nav')
+    @yield('jumbotron')
+</div>
 
-        <div class="col-md-12">
-            <div class="page-header">
-                @include('frontend.layouts.nav')
-                <div class="section-header">
-                    <div class="row">
-                        @if(Session::has('register-success') || Session::has('success'))
-                            <div class="alert alert-success">
-                                <p>{{ Session::get('register-success') }}</p>
-                                <p>{{ Session::get('success') }}</p>
-                            </div>
-                        @endif
-                        <div class="col-md-9">
-                            <h3>@yield('section')</h3>
-                        </div>
-                        <div class="col-md-3" style="padding-right: 0;">
-                            <img src="{{ asset('/images/uai-vertical.png') }}" style="width: 100%;" id="Logo UAI"/>
-                            <br/>
-                        </div>
-                    </div>
-                </div>
+<main role="main" class="container">
+    @yield('content')
+</main><!-- /.container -->
+<br>
+<footer class="blog-footer">
+    <div class="d-flex align-items-center col-md-12">
+        <div class="d-flex col-md-4">
+            <img src="{{ asset('images/uai-vertical.png') }}" alt="UAI Universidad Abierta Interamericana"
+                 class="w-100">
+        </div>
+        <div class="d-flex col-md-4">
+            <div>
+                <p>Boletín Científico Tecnológico</p>
+                <p>Proyecto de extensión universitaria</p>
             </div>
         </div>
-
-        @yield('slider')
-
-        <div class="col-md-9">
-            @yield('content')
-        </div>
-
-        <div class="col-md-3 text-center">
-            @include('frontend.layouts.sidebar')
-        </div>
-    </div>
-</div>
-<footer class="footer">
-    <div class="container">
-        <div class="panel panel-default" style="margin: 0;">
-            <div class="panel-body">
-                <div class="col-md-12">
-                    <div class="col-md-4">
-                        <p><img src="{{ asset('/images/uai-vertical.png') }}" style="width: 100%;" id="Logo UAI"/></p>
-                    </div>
-                    <div class="col-md-4">
-                        <p>Boletín Científico Tecnológico</p>
-                        <p>Proyecto de extensión universitaria</p>
-                    </div>
-                    <div class="col-md-4">
-                        <p><b>Coordinación: </b>Enrique Cingolani</p>
-                        <p><b>Desarrollo: </b>Sebastián Portesi</p>
-                    </div>
-                </div>
+        <div class="d-flex col-md-4">
+            <div>
+                <p><b>Coordinación:</b> Enrique Cingolani</p>
+                <p><b>Desarrollo:</b> Sebastián Portesi</p>
             </div>
         </div>
     </div>

@@ -2,45 +2,24 @@
 
 @section('section', 'Últimas Noticias')
 
-@section('content')
-    @include('frontend.news.news')
-@endsection
-
-
-@section('slider')
-    <div class="col-md-12">
-        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-            <!-- Indicators -->
-            <ol class="carousel-indicators">
-                @foreach($slider as $slide)
-                    <li data-target="#carousel-example-generic"
-                        data-slide-to="{{ $loop->index }}" class="{{ $loop->first ? 'active' : '' }}"></li>
-                @endforeach
-            </ol>
-
-            <!-- Wrapper for slides -->
-            <div class="carousel-inner" role="listbox">
-                @foreach($slider as $slide)
-                    <div class="item {{ $loop->first ? 'active' : '' }}">
-                        <a href="{!! $slide->link_1 !!}" target="_blank">
-                            <img src="{{ asset($slide->image_url) }}">
-                        </a>
-                        <div class="carousel-caption">
-                            {{ utf8_decode($slide->title) }}
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-
-            <!-- Controls -->
-            <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                <span class="sr-only">Anterior</span>
-            </a>
-            <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                <span class="sr-only">Siguiente</span>
-            </a>
+@section('jumbotron')
+    <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark"
+         style="background-image: url('{{ asset($latest->image_url) }}')">
+        <div class="col-md-6 px-0 jumbo-caption">
+            <h1 class="jumbo-text display-4 font-italic">{{ str_limit($latest->title, 40) }}</h1>
+            <p class="jumbo-text lead my-3">{{ str_limit($latest->summary, 200) }}</p>
+            <p class="jumbo-text lead mb-0"><a href="#" class="text-white font-weight-bold">Leer Más...</a></p>
         </div>
     </div>
+@endsection
+
+@section('content')
+    <div class="row">
+        <div class="col-md-9 blog-main">
+            @include('frontend.news.news')
+        </div><!-- /.blog-main -->
+
+        @include('frontend.layouts.sidebar')
+
+    </div><!-- /.row -->
 @endsection

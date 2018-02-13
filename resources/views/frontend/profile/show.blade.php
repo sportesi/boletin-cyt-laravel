@@ -7,8 +7,8 @@
         <div class="col-md-3">
 
             <!-- Profile Image -->
-            <div class="panel panel-primary">
-                <div class="panel-body box-profile">
+            <div class="card card-primary">
+                <div class="card-body box-profile">
                     <img class="profile-user-img img-responsive img-circle"
                          src="{{ asset('backoffice/img/avatar5.png') }}" alt="User profile picture">
 
@@ -24,16 +24,16 @@
 
                 </div>
             </div>
-            <!-- /.panel -->
-
-            <!-- About Me panel -->
-            <div class="panel panel-primary">
-                <div class="panel-heading with-border">
-                    <h3 class="panel-title">Acerca de Mi</h3>
+            <!-- /.card -->
+            <br>
+            <!-- About Me card -->
+            <div class="card card-primary">
+                <div class="card-header with-border">
+                    <h3 class="card-title">Acerca de Mi</h3>
                 </div>
-                <!-- /.panel-heading -->
+                <!-- /.card-header -->
 
-                <div class="panel-body">
+                <div class="card-body">
                     <p>
                         <strong><i class="fa fa-book margin-r-5"></i> Curso</strong>
                         <span class="text-muted">{{ $user->getComission() }} {{ $user->turn->name }}</span>
@@ -44,14 +44,14 @@
                         <span class="text-muted">{{ $user->campus->name }}</span>
                     </p>
                 </div>
-                <!-- /.panel-body -->
+                <!-- /.card-body -->
             </div>
-            <!-- /.panel -->
+            <!-- /.card -->
         </div>
         <!-- /.col -->
         <div class="col-md-9">
-            <div class="panel panel-info">
-                <div class="panel-body">
+            <div class="card card-info">
+                <div class="card-body">
                     <div class="">
                         <ul class="nav nav-tabs">
                             <li class="active"><a href="#timeline" data-toggle="tab">Últimas Noticias</a></li>
@@ -59,56 +59,8 @@
                         <div class="tab-content">
                             <div class="active tab-pane timeline" id="timeline">
                                 <br>
-                                @foreach($news as $new)
-                                    <div class="panel panel-default">
-                                        <div class="panel-body">
-                                            <div class="col-md-12">
-                                                <div class="pull-left">
-                                                    <b>{{ $new->category->name }}</b>
-                                                </div>
-                                                <div class="pull-right">
-                                                    <span class="text-muted"><i>{{ $new->created_at->diffForHumans() }}</i></span>
-                                                </div>
-                                            </div>
-                                            <hr>
-                                            <div class="col-md-12">
-                                                <div class="col-md-2">
-                                                    <img class="img-circle" src="{!! $new->image_url !!}"/>
-                                                </div>
-                                                <div class="col-md-10">
-                                                    <div class="panel panel-info">
-                                                        <div class="panel-heading">
-                                                            {{ str_limit(utf8_decode($new->title), 50) }}
-                                                        </div>
-                                                        <div class="panel-body">
-                                                            <p>
-                                                                {{ str_limit(utf8_decode($new->summary), 50) }}
-                                                            </p>
-
-                                                            <div class="text-center">
-                                                                @if($new->link_1)
-                                                                    <a href="{!! $new->link_1 !!}" class="btn btn-info btn-xs" target="_blank">Nota
-                                                                        Completa</a>
-                                                                @endif
-                                                                @if($new->link_2)
-                                                                    <a href="{!! $new->link_2 !!}" class="btn btn-info btn-xs"
-                                                                       target="_blank">Relacionado</a>
-                                                                @endif
-                                                                @if($new->link_3)
-                                                                    <a href="{!! $new->link_3 !!}" class="btn btn-info btn-xs" target="_blank">Formato
-                                                                        PDF</a>
-                                                                @endif
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endforeach
-                                @if (count($news))
-                                    <div class="text-center">{{ $news->links() }}</div>
-                                @else
+                                @include('frontend.news.news')
+                                @if (!count($news))
                                     <div class="well">
                                         <b>Este usuario todavia no publico ninguna noticia.</b>
                                     </div>

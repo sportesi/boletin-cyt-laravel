@@ -3,8 +3,11 @@
 @section('section', 'Reiniciar Contraseña')
 
 @section('content')
-    <div class="panel panel-default">
-        <div class="panel-body">
+    <div class="card">
+        <div class="card-header">
+            ¿Olvidaste tu contraseña?
+        </div>
+        <div class="card-body">
             @if (session('status'))
                 <div class="alert alert-success">
                     {{ session('status') }}

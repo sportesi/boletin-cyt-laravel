@@ -17,6 +17,10 @@ class AppServiceProvider extends ServiceProvider
     {
         Carbon::setLocale('es');
 
+        view()->composer('frontend.layouts.nav', function ($view) {
+            $view->with('categories', Category::active());
+        });
+
         view()->composer('frontend.layouts.sidebar', function ($view) {
             $view->with('categories', Category::active());
         });
