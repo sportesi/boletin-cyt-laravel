@@ -5,8 +5,10 @@
                 <strong class="d-inline-block mb-2 text-primary">{{ $new->category->name }}</strong>
                 <div class="mb-1 text-muted">
                     {{ $new->created_at->diffForHumans() }}
-                    por
-                    <a href="{{ route('profile.show', ['profile' => $new->user->id]) }}}">{{ utf8_decode($new->getAuthor()) }}</a>
+                    @if($new->user)
+                        por
+                        <a href="{{ route('profile.show', ['profile' => $new->user->id]) }}}">{{ utf8_decode($new->getAuthor()) }}</a>
+                    @endif
                 </div>
                 <h3 class="mb-0">
                     <a class="text-dark" href="#">{{ utf8_decode($new->title) }}</a>
