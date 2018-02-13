@@ -9,22 +9,35 @@
         </div>
         <div class="col-2 text-right">
             @if(\Illuminate\Support\Facades\Auth::check())
-                <div class="dropdown">
-                    <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button"
-                            id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="false">
-                        {{ \Illuminate\Support\Facades\Auth::user()->name }}
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="{{ route('news.index') }}">Mis Noticias</a>
-                        <a class="dropdown-item" href="#">
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST">
-                                {{ csrf_field() }}
-                                <button type="submit" class="btn btn-sm btn-outline-secondary">Cerrar sesión
-                                </button>
-                            </form>
-                        </a>
+                <div class="text-center">
+                    <div class="dropdown">
+                        <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button"
+                                id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">
+                            {{ \Illuminate\Support\Facades\Auth::user()->name }}
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="{{ route('news.index') }}">
+                                Mis Noticias
+                            </a>
+
+                            @if(\Illuminate\Support\Facades\Auth::user()->hasRole('admin'))
+                                <a class="dropdown-item" href="{{ route('bo.dash') }}">Panel de Control</a>
+                            @endif
+
+                            <a class="dropdown-item" href="#">
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                                    {{ csrf_field() }}
+                                    <button type="submit" class="btn btn-sm btn-outline-secondary">Cerrar sesión
+                                    </button>
+                                </form>
+                            </a>
+                        </div>
                     </div>
+                    <br>
+                    <a href="{{ route('news.create') }}" class="btn btn-primary btn-sm">
+                        <i class="fa fa-plus"></i> Crear Noticia
+                    </a>
                 </div>
             @else
                 <div class="dropdown dropleft">

@@ -22,9 +22,26 @@
 <main role="main" class="container">
     @yield('content')
 </main><!-- /.container -->
-
+<br>
 <footer class="blog-footer">
-
+    <div class="d-flex align-items-center col-md-12">
+        <div class="d-flex col-md-4">
+            <img src="{{ asset('images/uai-vertical.png') }}" alt="UAI Universidad Abierta Interamericana"
+                 class="w-100">
+        </div>
+        <div class="d-flex col-md-4">
+            <div>
+                <p>Boletín Científico Tecnológico</p>
+                <p>Proyecto de extensión universitaria</p>
+            </div>
+        </div>
+        <div class="d-flex col-md-4">
+            <div>
+                <p><b>Coordinación:</b> Enrique Cingolani</p>
+                <p><b>Desarrollo:</b> Sebastián Portesi</p>
+            </div>
+        </div>
+    </div>
 </footer>
 
 <!-- Scripts -->
