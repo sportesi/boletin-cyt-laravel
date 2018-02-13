@@ -39,7 +39,9 @@
                     @endif
                 </div>
             </div>
-            <img class="card-img-right flex-auto d-none d-md-block" src="{{ $new->image_url }}">
+            <div class="d-none d-md-block card-img-container">
+                <img class="card-img-right flex-auto d-none d-md-block" src="{{ $new->image_url }}">
+            </div>
         </div>
     </div>
 @endforeach
