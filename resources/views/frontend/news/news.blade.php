@@ -13,7 +13,7 @@
                 <h3 class="mb-0">
                     <a class="text-dark" href="#">{{ utf8_decode($new->title) }}</a>
                 </h3>
-                <p class="card-text mb-auto">{{ !empty($new->sub_title) ? utf8_decode($new->sub_title) : str_limit(utf8_decode($new->summary), 200) }}</p>
+                <p class="card-text mb-auto">{{ !empty($new->sub_title) ? str_limit(utf8_decode($new->sub_title), 140) : str_limit(utf8_decode($new->summary), 140) }}</p>
 
                 <div class="btn-group">
                     <a class="btn btn-secondary btn-xs" href="{{ route('news.show', [$new->id]) }}">Leer más</a>
