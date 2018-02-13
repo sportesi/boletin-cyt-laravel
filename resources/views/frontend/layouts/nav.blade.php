@@ -46,7 +46,7 @@
                             aria-expanded="false">
                         Iniciar Sesión
                     </button>
-                    @include('auth.login')
+                    @include('auth.mini-login')
                 </div>
             @endif
         </div>
