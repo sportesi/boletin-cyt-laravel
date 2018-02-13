@@ -3,8 +3,11 @@
 @section('section', 'Reestablecer Contraseña')
 
 @section('content')
-    <div class="panel panel-default">
-        <div class="panel-body">
+    <div class="card">
+        <div class="card-header">
+            Reiniciar Contraseña
+        </div>
+        <div class="card-body">
             <form class="form-horizontal" method="POST" action="{{ route('password.request') }}">
                 {{ csrf_field() }}
 

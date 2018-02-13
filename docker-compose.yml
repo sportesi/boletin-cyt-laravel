@@ -11,5 +11,11 @@ services:
       - MYSQL_PASSWORD=boletincyt 
       - MYSQL_ROOT_PASSWORD=boletincyt
 
+  mailhog:
+    image: 'mailhog/mailhog'
+    ports:
+     - 8025:8025
+     - 1025:1025
+
 networks:
   default:
