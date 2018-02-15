@@ -57,7 +57,7 @@
     <nav class="nav d-flex justify-content-between">
         @foreach ($categories as $category)
             <a class="p-2 text-muted"
-               href="{{ route('category', [$category->id]) }}">{{ str_limit(utf8_decode($category->name), $limit = 15, $end = '...') }}</a>
+               href="{{ route('category', [$category->id]) }}">{{ str_limit(utf8_decode($category->name), $limit = 22, $end = '...') }}</a>
         @endforeach
     </nav>
 </div>
