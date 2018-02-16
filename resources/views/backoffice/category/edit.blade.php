@@ -26,11 +26,22 @@
                                    value="{{ $category->name }}"/>
                         </div>
                         <div class="form-group">
-                            <label for="">Estado</label>
+                            <label for="status">Estado</label>
                             <div class="checkbox">
                                 <label>
                                     <input type="checkbox" id="status" name="status"
-                                            {{ $category->status === 1 ? 'checked' : '' }}> Activa
+                                            {{ $category->status === 1 ? 'checked' : '' }}>
+                                    <span>Activa</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="primary">Principal</label>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" id="primary" name="primary"
+                                            {{ $category->primary === 1 ? 'checked' : '' }}>
+                                    <span>Mostrar en el menú</span>
                                 </label>
                             </div>
                         </div>

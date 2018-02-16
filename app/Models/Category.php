@@ -19,6 +19,16 @@ class Category extends Model
         return $categories;
     }
 
+    public static function primary()
+    {
+        $categories = static::where([
+            ['status', '=', '1'],
+            ['primary', '=', '1']
+        ])->get();
+
+        return $categories;
+    }
+
     public function news()
     {
         return $this->hasMany(News::class);

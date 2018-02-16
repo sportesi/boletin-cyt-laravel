@@ -40,7 +40,8 @@ class CategoryController extends Controller
         Category::create([
             'name' => $request->get('name'),
             'status' => $request->get('status') == 'on' ? 1 : 0,
-            'deleted' => false
+            'deleted' => false,
+            'primary' => $request->get('primary') == 'on' ? 1 : 0,
         ]);
 
         return redirect()->route('backoffice.category.index');
@@ -73,6 +74,7 @@ class CategoryController extends Controller
     {
         $category->name = $request->get('name');
         $category->status = $request->get('status') == 'on' ? 1 : 0;
+        $category->primary = $request->get('primary') == 'on' ? 1 : 0;
 
         $category->save();
 
@@ -84,6 +86,7 @@ class CategoryController extends Controller
      *
      * @param Category $category
      * @return \Illuminate\Http\Response
+     * @throws \Exception
      */
     public function destroy(Category $category)
     {
