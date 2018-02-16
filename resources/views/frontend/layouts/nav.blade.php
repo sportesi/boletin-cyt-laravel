@@ -9,19 +9,18 @@
         </div>
         <div class="col-3 text-right">
             @if(\Illuminate\Support\Facades\Auth::check())
-                <a href="{{ route('news.create') }}" class="btn btn-outline-primary btn-sm pull-left">
-                    Nueva Noticia
-                </a>
-                &nbsp;
-                <div class="dropdown pull-right">
+                <div class="dropdown dropleft pull-right">
                     <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button"
                             id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false">
                         {{ \Illuminate\Support\Facades\Auth::user()->name }}
                     </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <div class="dropdown-menu text-center" aria-labelledby="dropdownMenuButton">
                         <a class="dropdown-item" href="{{ route('news.index') }}">
                             Mis Noticias
+                        </a>
+                        <a class="dropdown-item" href="{{ route('news.create') }}">
+                            Nueva Noticia
                         </a>
 
                         @if(\Illuminate\Support\Facades\Auth::user()->hasRole('admin'))
