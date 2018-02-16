@@ -42,7 +42,16 @@ class NewsController extends Controller
      */
     public function update(Request $request, News $news)
     {
-        $news->update($request->all());
+        $news->category_id = $request->get("category_id");
+        $news->title = utf8_encode($request->get("title"));
+        $news->sub_title = utf8_encode($request->get("sub_title"));
+        $news->summary = utf8_encode($request->get("summary"));
+        $news->sub_summary = utf8_encode($request->get("sub_summary"));
+        $news->image_url = $request->get("image_url");
+        $news->link_1 = $request->get("link_1");
+        $news->link_2 = $request->get("link_2");
+        $news->link_3 = $request->get("link_3");
+
         $news->save();
 
         return redirect()->route('backoffice.news.edit', ['id' => $news->id]);
