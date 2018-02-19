@@ -3,14 +3,47 @@
 @section('section', 'Últimas Noticias')
 
 @section('jumbotron')
-    <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark"
-         style="background-image: url('{{ asset($latest->image_url) }}')">
-        <div class="col-md-6 px-0 jumbo-caption">
-            <h1 class="jumbo-text display-4 font-italic">{{ str_limit(utf8_decode($latest->title), 40) }}</h1>
-            <p class="jumbo-text lead my-3">{{ str_limit(utf8_decode($latest->summary), 200) }}</p>
-            <p class="jumbo-text lead mb-0"><a href="{{ route('news.show', [$latest->id]) }}"
-                                               class="text-white font-weight-bold">Leer Más...</a></p>
+    <div id="sliderCarousel" class="carousel slide mb-3" data-ride="carousel">
+        <ol class="carousel-indicators">
+            @foreach($slider as $sliderItem)
+                <li data-target="#sliderCarousel"
+                    data-slide-to="{{ $loop->index }}" {{ $loop->first ? 'class="active"' : '' }}></li>
+            @endforeach
+        </ol>
+        <div class="carousel-inner">
+            @foreach($slider as $sliderItem)
+                <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
+                    <a href="{{ route('news.show', [$sliderItem->id]) }}">
+                        <div class="d-block silder-image"
+                             style="background-image: url('{{ $sliderItem->image_url }}')"></div>
+                    </a>
+                    <div class="carousel-caption d-none d-md-block bg-black">
+                        <h5>
+                            @if ($sliderItem->title)
+                                {{ str_limit(utf8_decode($sliderItem->title), 70) }}
+                            @else
+                                {{ str_limit(utf8_decode($sliderItem->sub_title), 70) }}
+                            @endif
+                        </h5>
+                        <p>
+                            @if ($sliderItem->summary)
+                                {{ str_limit(utf8_decode($sliderItem->summary), 140) }}
+                            @else
+                                {{ str_limit(utf8_decode($sliderItem->sub_summary), 140) }}
+                            @endif
+                        </p>
+                    </div>
+                </div>
+            @endforeach
         </div>
+        <a class="carousel-control-prev" href="#sliderCarousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#sliderCarousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
     </div>
 @endsection
 
