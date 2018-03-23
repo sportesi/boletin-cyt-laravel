@@ -26,8 +26,7 @@
 <footer class="blog-footer">
     <div class="d-flex align-items-center col-md-12">
         <div class="d-flex col-md-4">
-            <img src="{{ asset('images/uai-vertical.png') }}" alt="UAI Universidad Abierta Interamericana"
-                 class="w-100">
+            <img src="{{ asset('images/uai-vertical.png') }}" alt="UAI Universidad Abierta Interamericana" class="logo-footer">
         </div>
         <div class="d-flex col-md-4">
             <div>
