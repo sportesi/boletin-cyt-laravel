@@ -12,4 +12,9 @@ class StringHelper
             $course->campus
         ]);
     }
+
+    public static function title($string = '', $limit)
+    {
+        return ucfirst(strtolower(str_limit(utf8_decode($string), $limit)));
+    }
 }

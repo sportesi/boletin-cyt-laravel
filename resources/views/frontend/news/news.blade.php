@@ -10,26 +10,26 @@
                 @endif
             </div>
             <h3 class="mb-0">
-                <a class="text-dark" href="#">
+                <a class="text-dark" href="{{ route('news.show', [$new->id]) }}">
                     @if ($new->title)
-                        {{ str_limit(utf8_decode($new->title), 39) }}
+                        {{ App\Utils\StringHelper::title($new->title, 39) }}
                     @else
-                        {{ str_limit(utf8_decode($new->sub_title), 39) }}
+                        {{ App\Utils\StringHelper::title($new->sub_title, 39) }}
                     @endif
                 </a>
             </h3>
             <p class="card-text mb-auto">
                 @if ($new->summary)
-                    {{ str_limit(utf8_decode($new->summary), 140) }}
+                    {{ App\Utils\StringHelper::title($new->summary, 270) }}
                 @else
-                    {{ str_limit(utf8_decode($new->sub_summary), 140) }}
+                    {{ App\Utils\StringHelper::title($new->sub_summary, 270) }}
                 @endif
             </p>
 
             <div class="btn-group">
-                <a class="btn btn-secondary btn-xs" href="{{ route('news.show', [$new->id]) }}">Leer más</a>
+                <a class="btn btn-secondary btn-sm" href="{{ route('news.show', [$new->id]) }}">Leer más</a>
                 @if(Auth::check() && $new->user && $new->user->id === Auth::user()->id)
-                    <a href="{{ route('news.edit', [$new->id]) }}" class="btn btn-primary btn-xs">
+                    <a href="{{ route('news.edit', [$new->id]) }}" class="btn btn-primary btn-sm">
                         Editar
                     </a>
                     <form action="{{ route('news.destroy', [$new->id]) }}" method="post"
@@ -44,7 +44,7 @@
                             }
                         }
                     </script>
-                    <button onclick="deleteNew({{ $new->id }})" class="btn btn-danger btn-xs">
+                    <button onclick="deleteNew({{ $new->id }})" class="btn btn-danger btn-sm">
                         Borrar
                     </button>
                 @endif
