@@ -7,6 +7,7 @@ require('admin-lte');
 require('datatables.net-bs');
 require('bootstrap-notify');
 require('./user');
+require('select2');
 
 $(document).ready(() => {
     $('.datatable-js').dataTable({
@@ -19,4 +20,6 @@ $(document).ready(() => {
             item.parent().toggleClass('active');
         }
     });
+
+    $('.select2').select2();
 });

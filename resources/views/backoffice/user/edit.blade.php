@@ -6,6 +6,12 @@
     <div class="row">
         <div class="col-xs-12">
             <div class="box">
+                <div class="box-header with-border">
+                  <h3 class="box-title"> Datos del Usuario </h3>
+                  <a href="{{ route('backoffice.news.index', ['user' => $user->id]) }}" class="btn btn-info btn-xs pull-right">
+                    <i class="fa fa-book"></i> Ver Noticias
+                  </a>
+                </div>
                 <div class="box-body">
                     @php
                         if ($user->id) {

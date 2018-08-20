@@ -3,6 +3,7 @@
 use App\Category;
 use App\Http\Controllers\Controller;
 use App\News;
+use App\User;
 use Illuminate\Http\Request;
 
 class NewsController extends Controller
@@ -14,8 +15,20 @@ class NewsController extends Controller
      */
     public function index()
     {
+        $filters = [];
+
+        if (!empty(request()->get('user'))) {
+            $filters[] = ['user_id', '=', request()->get('user')];
+        }
+
+        if (!empty(request()->get('category'))) {
+            $filters[] = ['category_id', '=', request()->get('category')];
+        }
+
         return view('backoffice.news.index', [
-            'news' => News::orderBy('created_at', 'desc')->paginate(10),
+            'news' => News::where($filters)->orderBy('created_at', 'desc')->paginate(15),
+            'users' => User::all(),
+            'categories' => Category::where('status', '=', '1')->get()
         ]);
     }
 

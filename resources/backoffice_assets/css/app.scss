@@ -1,5 +1,10 @@
 @import "~datatables.net-bs/css/dataTables.bootstrap";
+@import "~admin-lte/bower_components/select2/dist/css/select2.min.css";
 
 .checkbox label span {
   vertical-align: sub;
+}
+
+.table-font-sm {
+    font-size: 12px;
 }
