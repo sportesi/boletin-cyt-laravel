@@ -53,44 +53,44 @@
                     <label for="summary" class="col-sm-2 control-label">Resumen *</label>
                     <div class="col-sm-10">
                         <textarea name="summary" id="summary" class="form-control" cols="30" rows="10"
-                                  maxlength="250" required>{{ utf8_decode($news->summary) }}</textarea>
-                        <span class="summary-counter pull-right">Caracteres restantes: <b>250</b></span>
+                                  maxlength="255" required>{{ utf8_decode($news->summary) }}</textarea>
+                        <span class="summary-counter pull-right">Caracteres restantes: <b>255</b></span>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="sub_summary" class="col-sm-2 control-label">Sub Resumen</label>
                     <div class="col-sm-10">
                         <textarea name="sub_summary" id="sub_summary" class="form-control" cols="30" rows="5"
-                                  maxlength="250">{{ utf8_decode($news->sub_summary) }}</textarea>
-                        <span class="sub_summary-counter pull-right">Caracteres restantes: <b>250</b></span>
+                                  maxlength="255">{{ utf8_decode($news->sub_summary) }}</textarea>
+                        <span class="sub_summary-counter pull-right">Caracteres restantes: <b>255</b></span>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="image_url" class="col-sm-2 control-label">Link Imágen *</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" id="image_url" value="{{ $news->image_url }}"
-                               name="image_url" required>
+                               name="image_url" required maxlength="255">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="link_1" class="col-sm-2 control-label">Link Noticia *</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" id="link_1" value="{{ $news->link_1 }}"
-                               name="link_1" required>
+                               name="link_1" required maxlength="255">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="link_2" class="col-sm-2 control-label">Link Relacionado</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" id="link_2" value="{{ $news->link_2 }}"
-                               name="link_2">
+                               name="link_2" maxlength="255">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="link_3" class="col-sm-2 control-label">Link PDF</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" id="link_3" value="{{ $news->link_3 }}"
-                               name="link_3">
+                               name="link_3" maxlength="255">
                     </div>
                 </div>
 
