@@ -10,11 +10,21 @@ jobs:
         auth:
           username: $DOCKERHUB_USERNAME
           password: $DOCKERHUB_PASSWORD
+      - image: mariadb:10.2.11
+        environment:
+          - MYSQL_DATABASE=boletincyt
+          - MYSQL_USER=boletincyt
+          - MYSQL_PASSWORD=boletincyt
+          - MYSQL_ROOT_PASSWORD=boletincyt
     steps:
       - checkout
       - run:
           name: Composer install
           command: composer install
+      - run:
+          name: Copy env example
+          command: cp .env.example .env
+
       - run:
           name: Run tests
           command: ./vendor/bin/phpunit
