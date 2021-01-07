@@ -16,6 +16,7 @@ jobs:
           - MYSQL_USER=boletincyt
           - MYSQL_PASSWORD=boletincyt
           - MYSQL_ROOT_PASSWORD=boletincyt
+    resource_class: small
     steps:
       - checkout
       - run:
@@ -27,6 +28,9 @@ jobs:
       - run:
           name: Give storage permissions
           command: chmod -R 777 storage
+      - run:
+          name: Run migrations
+          command: php artisan migrate:refresh --seed
       - run:
           name: Run tests
           command: ./vendor/bin/phpunit
