@@ -38,12 +38,11 @@ jobs:
       - run:
           name: Run tests
           command: ./vendor/bin/phpunit
-      - docker/build:
-          image: sportesi/boletin-cyt:latest
-      - docker/push:
-          image: sportesi/boletin-cyt:latest
 
 workflows:
   build_test_deploy:
     jobs:
       - build_test_deploy
+      - docker/publish:
+          image: sportesi/boletin-cyt
+          update-description: true
