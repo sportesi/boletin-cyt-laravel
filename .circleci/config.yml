@@ -24,7 +24,9 @@ jobs:
       - run:
           name: Copy env example
           command: cp .env.example .env
-
+      - run:
+          name: Give storage permissions
+          command: chmod -R 777 storage
       - run:
           name: Run tests
           command: ./vendor/bin/phpunit
