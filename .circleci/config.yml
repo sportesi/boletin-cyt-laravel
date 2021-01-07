@@ -41,3 +41,8 @@ jobs:
       - docker/publish:
           image: sportesi/boletin-cyt:latest
           update-description: true
+
+workflows:
+  build_test_deploy:
+    jobs:
+      - build_test_deploy
