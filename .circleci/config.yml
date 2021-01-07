@@ -32,6 +32,9 @@ jobs:
           name: Run migrations
           command: php artisan migrate:refresh --seed
       - run:
+          name: Run npm and mix
+          command: npm install && npm run prod
+      - run:
           name: Run tests
           command: ./vendor/bin/phpunit
 
