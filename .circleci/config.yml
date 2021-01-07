@@ -9,8 +9,8 @@ jobs:
     docker:
       - image: sportesi/boletin-cyt:latest
         auth:
-          username: $DOCKERHUB_USERNAME
-          password: $DOCKERHUB_PASSWORD
+          username: $DOCKER_LOGIN
+          password: $DOCKER_PASSWORD
       - image: mariadb:10.2.11
         environment:
           - MYSQL_DATABASE=boletincyt
