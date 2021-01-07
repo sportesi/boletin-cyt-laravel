@@ -44,5 +44,8 @@ workflows:
     jobs:
       - build_test_deploy
       - docker/publish:
+          type: approval
           image: sportesi/boletin-cyt
           update-description: true
+          requires:
+            - build_test_deploy
