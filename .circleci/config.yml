@@ -5,7 +5,7 @@ orbs:
 
 jobs:
   build_test_deploy:
-    executor: docker
+    executor: docker/docker
     docker:
       - image: sportesi/boletin-cyt:latest
         auth:
@@ -38,9 +38,10 @@ jobs:
       - run:
           name: Run tests
           command: ./vendor/bin/phpunit
-      - docker/publish:
+      - docker/build:
           image: sportesi/boletin-cyt:latest
-          update-description: true
+      - docker/push:
+          image: sportesi/boletin-cyt:latest
 
 workflows:
   build_test_deploy:
